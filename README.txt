@@ -35,3 +35,34 @@ https://github.com/vuejs/vue-devtools
 Book source
 https://github.com/seungwongo/vue-project
 https://github.com/seungwongo/mini-project-shop
+
+
+-------------------------------------------------------------------
+
+Vue.js
+
+*Visual Stdudio Code Install
+  - Excention
+    Vetur
+	Debugger for Chrome
+	Prettier - Code fomatter
+
+* Node.js & NPM Install
+
+* Vue CLI Install
+  - npm install -g @vue/cli
+		npm install -g package_name
+		npm install package_name --save
+
+* Vue Project Create
+  - vue create vue-preoject (default)
+  - vue create vue-project-manually 
+  - vue ui (vue-project-manager)
+
+* Vue Route Install
+  - cd project_folder
+  - vue add router
+ 
+
+
+
