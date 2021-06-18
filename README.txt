@@ -30,3 +30,8 @@ https://vuetifyjs.com/en/
 https://nuxtjs.org/
 
 https://github.com/vuejs/vue-devtools
+
+[[Reference]]
+Book source
+https://github.com/seungwongo/vue-project
+https://github.com/seungwongo/mini-project-shop
