@@ -1,4 +1,4 @@
-# vue-project
+# vuejs3x
 
 ## Project setup
 ```
