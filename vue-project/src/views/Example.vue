@@ -78,6 +78,13 @@
             </tbody>
         </table>
     </div>
+
+    <div>
+        <h1 v-if="type==='A'">A</h1>
+        <h1 v-else-if="type==='B'">B</h1>
+        <h1 v-else>C</h1>
+        <h1 v-show='true'>v-if (display:none) & v-show (visibile) </h1>
+    </div>
 </div>
 </template>
 
