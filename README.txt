@@ -66,6 +66,10 @@ Vue.js
 * Axios Install
   - cd vue_project
   - npm install axios --save
+
+* Vuex Install
+  - cd vue_project
+  - npm install vuex@next --save
  
 
 
