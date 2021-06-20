@@ -131,6 +131,26 @@
         <button type="button" @click="firstnameChangeSub">first name change</button>
     </div>  
 
+    <div>
+        <button type="button" @click="apiCall">use axios api call</button>
+        <table>
+            <thead>
+                <tr>
+                    <th>no</th>
+                    <th>language</th>
+                    <th>category</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr :key="i" v-for="(item,i) in items">
+                    <td>{{item.no}}</td>
+                    <td>{{item.language}}</td>
+                    <td>{{item.category}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
 </div>
 </template>
 
@@ -233,6 +253,10 @@
                 alert(this.firstNameSub)
                 this.firstNameSub = 'react'
                 alert(this.firstNameSub)
+            },
+            async apiCall(){
+                alert('use axios api call')
+                //this.items = await this.$api("server_api_url","get");
             }
         }
     }
