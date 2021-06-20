@@ -46,6 +46,38 @@
     </div>  
 
     <div><img v-bind:src="imgSrc" v-bind:witdh="30" v-bind:height="30"/></div>
+
+    <div>
+        <input type="text" v-model="textValue"/>
+        <button type="button" v-bind:disabled="textValue==''">Click</button>
+    </div>
+
+    <div class="container" v-bind:class="{ 'active' : isActive, 'text-red' : hasError}">Class Binding</div>
+
+    <div class="container" v-bind:class="[activeClass, errorClass]">Class Binding</div>
+
+    <div v-bind:style="styleObject">Inline Style Binding</div>
+
+    <div v-bind:style="[baseStyle, addStyle]">Inline Style array Binding</div>
+
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>no</th>
+                    <th>language</th>
+                    <th>category</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr :key="i" v-for="(item,i) in items">
+                    <td>{{item.no}}</td>
+                    <td>{{item.language}}</td>
+                    <td>{{item.category}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
 </template>
 
@@ -69,6 +101,23 @@
                 ,radioValue2 : 'B'
                 ,radioValue3 : 'C'
                 ,imgSrc : 'https://kr.vuejs.org/images/logo.png'
+                ,textValue : ""
+                ,isActive : true
+                ,hasError : false
+                ,activeClass : 'active'
+                ,errorClass : 'text-red'
+                ,styleObject : {
+                    color : 'red'
+                    ,fontSize : '13px'
+                }
+                ,baseStyle : 'background-color:yellow;width;100%;height:20px'
+                ,addStyle : 'color:red;font-weight:bold'
+                ,items : [
+                    {"no" : "1" ,"language" : "vue", "category" : "frontend"}
+                    ,{"no" : "2" ,"language" : "react", "category" : "frontend"}
+                    ,{"no" : "3" ,"language" : "java", "category" : "backend"}
+                    ,{"no" : "4" ,"language" : "python", "category" : "backend"}
+                ]                                    
             };
         },
         setup() {},
@@ -85,4 +134,25 @@
 </script>
 
 <style scoped>
+    container {
+        width : 100%;
+        height : 200px;
+    }
+    .active {
+        background-color : yellow;
+        font-weight: bold;
+    }
+    .text-red {
+        color: red;
+    }
+    table {
+        font-family: arial,sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+    td,th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding : 3px;
+    }
 </style>
