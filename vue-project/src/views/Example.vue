@@ -136,16 +136,16 @@
         <table>
             <thead>
                 <tr>
-                    <th>no</th>
-                    <th>language</th>
-                    <th>category</th>
+                    <th>id</th>
+                    <th>userid</th>
+                    <th>title</th>
                 </tr>
             </thead>
             <tbody>
-                <tr :key="i" v-for="(item,i) in items">
-                    <td>{{item.no}}</td>
-                    <td>{{item.language}}</td>
-                    <td>{{item.category}}</td>
+                <tr :key="i" v-for="(item,i) in posts">
+                    <td>{{item.id}}</td>
+                    <td>{{item.userId}}</td>
+                    <td>{{item.title}}</td>
                 </tr>
             </tbody>
         </table>
@@ -200,6 +200,7 @@
                 ,firstNameSub : 'vue'
                 ,lastNameSub : 'js'
                 ,fullNameSub : ''
+                ,posts : []
             };
         },
         computed : {
@@ -255,8 +256,7 @@
                 alert(this.firstNameSub)
             },
             async apiCall(){
-                alert('use axios api call')
-                //this.items = await this.$api("server_api_url","get");
+                this.posts = await this.$api("https://jsonplaceholder.typicode.com/posts","get");
             }
         }
     }
