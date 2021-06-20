@@ -60,8 +60,12 @@ Vue.js
   - vue ui (vue-project-manager)
 
 * Vue Route Install
-  - cd project_folder
+  - cd vue_project
   - vue add router
+
+* Axios Install
+  - cd vue_project
+  - npm install axios --save
  
 
 
