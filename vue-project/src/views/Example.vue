@@ -80,11 +80,57 @@
     </div>
 
     <div>
-        <h1 v-if="type==='A'">A</h1>
-        <h1 v-else-if="type==='B'">B</h1>
+        <h1 v-if="condition==='A'">A</h1>
+        <h1 v-else-if="condition==='B'">B</h1>
         <h1 v-else>C</h1>
         <h1 v-show='true'>v-if (display:none) & v-show (visibile) </h1>
     </div>
+
+    <div>
+        <button type="button" @click="increaseCounter">Add 1 </button>
+        <p>The counter is : {{counter}}</p>
+        <button type="button" @click="setCounter(7)">Set 7 </button>
+        <p>The counter sub is : {{countersub}}</p>
+        <button type="button" @click="one(), two()">Click </button>
+    </div>
+
+    <div>
+        <select v-model="typesub" @change="changeSelect">
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+        </select>
+    </div>  
+
+    <div>
+        <input @keyup.enter="keyevent"/>
+        <span>
+            <br>
+            .enter
+            .up
+            .tab 
+            .down 
+            .delete 
+            .left 
+            .esc 
+            .right 
+            .space 
+            <br>
+            Alt + Enter -> @keyup.alt.enter 
+            Ctrl + Click -> @click.ctrl 
+        </span>
+    </div>
+
+    <div>
+        <span>computed</span>
+        <h1>Full Name : {{fullName}}</h1>
+        <button type="button" @click="firstnameChange">first name change</button>
+        <p/>
+        <span>watch</span>
+         <h1>Full Name : {{fullNameSub}}</h1>
+        <button type="button" @click="firstnameChangeSub">first name change</button>
+    </div>  
+
 </div>
 </template>
 
@@ -124,8 +170,30 @@
                     ,{"no" : "2" ,"language" : "react", "category" : "frontend"}
                     ,{"no" : "3" ,"language" : "java", "category" : "backend"}
                     ,{"no" : "4" ,"language" : "python", "category" : "backend"}
-                ]                                    
+                ] 
+                ,condition : 'A'     
+                ,counter : 0
+                ,countersub : 0
+                ,typesub : 'A'
+                ,firstName : 'vue'
+                ,lastName : 'js'
+                ,firstNameSub : 'vue'
+                ,lastNameSub : 'js'
+                ,fullNameSub : ''
             };
+        },
+        computed : {
+            fullName(){
+                return this.firstName +' '+this.lastName
+            }
+        },
+        watch : {
+            firstNameSub(){
+                this.fullNameSub = this.firstNameSub + ' ' + this.lastNameSub
+            },
+            lastNameSub(){
+                this.fullNameSub = this.firstNameSub + ' ' + this.lastNameSub
+            }
         },
         setup() {},
         beforeCreate() {},
@@ -136,7 +204,37 @@
         updated() {},
         beforeUnmount() {},
         unmounted() {},
-        methods : {}
+        methods : {
+            increaseCounter(){
+                this.counter = this.counter + 1
+            },
+            setCounter(setnumber){
+                this.countersub = setnumber 
+            },
+            one(){
+                alert('one')
+            },
+            two(){
+                alert('two')
+            },
+            changeSelect(){ 
+                alert(this.typesub)
+
+            },
+            keyevent(){
+                alert('keyevent')
+            },
+            firstnameChange(){
+                alert(this.firstName)
+                this.firstName = 'react'
+                alert(this.firstName)
+            },
+            firstnameChangeSub(){
+                alert(this.firstNameSub)
+                this.firstNameSub = 'react'
+                alert(this.firstNameSub)
+            }
+        }
     }
 </script>
 
