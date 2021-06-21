@@ -179,7 +179,7 @@
 
         <modal-layout>
             <template v-slot:header>
-                <h1>Pop Up Title</h1>
+                <h1>Pop Up Title - Slot</h1>
             </template>
             <template v-slot:default>
                 <p>Pop Up Contents 1</p>
