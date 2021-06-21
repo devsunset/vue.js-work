@@ -337,6 +337,9 @@
             },
             count(){
                 return this.$store.state.count;
+            },
+            countCount() {
+                return this.$store.getters.cartCount;
             }
         },
         watch : {
