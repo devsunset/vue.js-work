@@ -167,6 +167,7 @@
         <ChildComponent  title="Childcomponent boolean use bind" v-bind:condition="true"/> 
         <ChildComponent  title="Childcomponent array use bind" v-bind:arrayvalue="[1,2,3]"/>
         <ChildComponent  title="Childcomponent object use bind" v-bind:objectvalue="{id : 'object', key : '1'}"/>
+        <span> <ChildComponent  title="Childcomponent click event call" ref="child_component"/><button type="button" @click="childFuncCall()">clild click</button></span>
     </div>
 
 </div>
@@ -278,6 +279,10 @@
             },
             async apiCall(){
                 this.posts = await this.$api("https://jsonplaceholder.typicode.com/posts","get");
+            },
+            childFuncCall(){
+                alert('parent click -> child button click')
+                this.$refs.child_component.$refs.btn.click();
             }
         }
     }

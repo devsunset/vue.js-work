@@ -1,5 +1,5 @@
 <template>
-    <h3>{{ title }} : {{ age }} : <span v-if="condition">boolean true</span> : {{ arrayvalue }}  : {{ objectvalue !=null ? objectvalue.id : '' }}</h3>
+    <h3>{{ title }} : {{ age }} : <span v-if="condition">boolean true</span> : {{ arrayvalue }}  : {{ objectvalue !=null ? objectvalue.id : '' }} : <button type="button" @click="childFunc()" ref="btn">click</button></h3>
 </template>
 
 <script>
@@ -73,7 +73,11 @@
         updated() {},
         beforeUnmount() {},
         unmounted() {},
-        methods : {}
+        methods : {
+            childFunc() {
+                alert('child click');
+            }
+        }
     }
 </script>
 
