@@ -197,7 +197,6 @@
             <h1>----------------------------------------------------------------------</h1>
     </div>
 
-
     <div>
       <h2>Calculator - Composition API</h2>
         <input type="text" v-model="num1" @keyup="plusNumbers1" />
@@ -250,6 +249,16 @@
         <h3>{{ $translate("ko.hi") }}</h3>
         <h3>{{ $translate("en.hi") }}</h3>
         <h3>{{ i18n.ko.hi }}</h3>
+    </div>
+
+     <div>
+            <h1>----------------------------------------------------------------------</h1>
+    </div>
+
+    <div>
+        <p>Count : {{count}}</p>
+        <p>cartCount : {{cartCount}}</p>
+        <button type="button" @click="increment">Increment</button>
     </div>
 
 
@@ -325,6 +334,9 @@
             },
             msg() {
                 return this.$refs.child_component.msg;
+            },
+            count(){
+                return this.$store.state.count;
             }
         },
         watch : {
@@ -440,6 +452,9 @@
             },
             plusNumbers1() {
                 this.result1 = parseInt(this.num1) + parseInt(this.num2);
+            },
+            increment() {
+                this.$store.commit('increment');
             }
         },
         directives : {
