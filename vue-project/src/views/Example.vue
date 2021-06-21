@@ -2,6 +2,10 @@
 <div>
     <h1>Example</h1>
 
+    <div>
+            <h1>----------------------------------------------------------------------</h1>
+    </div>
+
     <div>Data Binding : {{dataBindMsg}}</div>
 
     <div>{{htmlString}}</div>
@@ -151,13 +155,28 @@
         </table>
     </div>
 
+    <div>
+            <h1>----------------------------------------------------------------------</h1>
+    </div>
+
+    <div>
+        <ChildComponent  />
+        <ChildComponent  title="Childcomponent static value"/>
+        <ChildComponent  v-bind:title="title"/>
+        <ChildComponent  title="Childcomponent number use bind" v-bind:age="11"/>
+        <ChildComponent  title="Childcomponent boolean use bind" v-bind:condition="true"/> 
+    </div>
+
+
 </div>
 </template>
 
 <script>
+    import ChildComponent from '../components/ChildComponent.vue'
+
     export default {
         name : '',
-        components : {},
+        components : {ChildComponent},
         data() {
             return {
                 dataBindMsg : 'Hello World'
@@ -201,6 +220,7 @@
                 ,lastNameSub : 'js'
                 ,fullNameSub : ''
                 ,posts : []
+                ,title : 'Childcomponent dynamic value'
             };
         },
         computed : {
