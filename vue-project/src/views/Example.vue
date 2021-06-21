@@ -165,12 +165,13 @@
         <ChildComponent  v-bind:title="title"/>
         <ChildComponent  title="Childcomponent number use bind" v-bind:age="11"/>
         <ChildComponent  title="Childcomponent boolean use bind" v-bind:condition="true"/> 
+        <ChildComponent  title="Childcomponent array use bind" v-bind:arrayvalue="[1,2,3]"/>
+        <ChildComponent  title="Childcomponent object use bind" v-bind:objectvalue="{id : 'object', key : '1'}"/>
     </div>
-
 
 </div>
 </template>
-
+ 
 <script>
     import ChildComponent from '../components/ChildComponent.vue'
 

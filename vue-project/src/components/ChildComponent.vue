@@ -1,5 +1,5 @@
 <template>
-    <h3>{{ title }} : {{ age }} : <span v-if="condition">boolean</span></h3>
+    <h3>{{ title }} : {{ age }} : <span v-if="condition">boolean true</span> : {{ arrayvalue }}  : {{ objectvalue !=null ? objectvalue.id : '' }}</h3>
 </template>
 
 <script>
@@ -17,6 +17,14 @@
             condition :  {
                 type : Boolean
                 ,default : false
+            },
+            arrayvalue :  {
+                type : Array
+                ,default: () => []
+            },
+            objectvalue : {
+                type : Object
+                ,default : () => {}
             }
         },
         components : {},
