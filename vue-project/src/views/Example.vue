@@ -176,6 +176,21 @@
         <button type="button" @click="changeChildData()">change child data</button>
         <button type="button" @click="checkChild()">check child</button>
         <child-component  title="Childcomponent From parent child control" @send-message="sendMessage" ref="child_component"/>
+
+        <modal-layout>
+            <template v-slot:header>
+                <h1>Pop Up Title</h1>
+            </template>
+            <template v-slot:default>
+                <p>Pop Up Contents 1</p>
+                <p>Pop Up Contents 2</p>
+            </template>
+            <template v-slot:footer>
+                <button type=“button”>Close</button>
+            </template>
+        </modal-layout>
+
+        <input type="text" ref="title"/>
     </div>
 
 </div>
@@ -183,10 +198,11 @@
  
 <script>
     import ChildComponent from '../components/ChildComponent.vue'
+    import ModalLayout from '../components/SlotModalLayout';
 
     export default {
         name : '',
-        components : {ChildComponent},
+        components : {ChildComponent,ModalLayout},
         data() {
             return {
                 dataBindMsg : 'Hello World'
@@ -249,11 +265,18 @@
                 this.fullNameSub = this.firstNameSub + ' ' + this.lastNameSub
             }
         },
+        provide(){
+            return {
+                itemLength : this.items.length
+            }
+        },
         setup() {},
         beforeCreate() {},
         created() {},
         beforeMount() {},
-        mounted() {},
+        mounted() {
+            this.$refs.title.focus();
+        },
         beforeUpdate() {},
         updated() {},
         beforeUnmount() {},
