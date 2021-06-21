@@ -193,12 +193,43 @@
         <input type="text" ref="title"/>
     </div>
 
+    <div>
+            <h1>----------------------------------------------------------------------</h1>
+    </div>
+
+
+    <div>
+      <h2>Calculator - Composition API</h2>
+        <input type="text" v-model="num1" @keyup="plusNumbers1" />
+        <span> + </span>
+        <input type="text" v-model="num2" @keyup="plusNumbers1" />
+        <span> = </span>
+        <span>{{result1}}</span>
+    </div>
+
+    <div>
+        <input type="text" v-model="state2.num3" @keyup="plusNumbers2" />
+        <span> + </span>
+        <input type="text" v-model="state2.num4" @keyup="plusNumbers2" />
+        <span> = </span>
+        <span>{{state2.result2}}</span>
+    </div>
+
+     <div>
+        <input type="text" v-model="state3.num5"/>
+        <span> + </span>
+        <input type="text" v-model="state3.num6"/>
+        <span> = </span>
+        <span>{{state3.result3}}</span>
+    </div>
+
 </div>
 </template>
  
 <script>
     import ChildComponent from '../components/ChildComponent.vue'
-    import ModalLayout from '../components/SlotModalLayout';
+    import ModalLayout from '../components/SlotModalLayout'
+    import {reactive , computed} from 'vue'
 
     export default {
         name : '',
@@ -247,6 +278,9 @@
                 ,fullNameSub : ''
                 ,posts : []
                 ,title : 'Childcomponent dynamic value'
+                ,num1: 0
+                ,num2: 0
+                ,result1: 0
             };
         },
         computed : {
@@ -270,7 +304,28 @@
                 itemLength : this.items.length
             }
         },
-        setup() {},
+        setup() {
+            let state2 = reactive({
+                num3 : 0
+                ,num4 : 0
+                ,result2 : 0
+            });
+
+            function plusNumbers2(){
+                state2.result2 = parseInt(state2.num3) + parseInt(state2.num4);
+            }
+            let state3 = reactive({
+                num5 : 0
+                ,num6 : 0
+                ,result3 :  computed (() =>  parseInt(state3.num5) + parseInt(state3.num6))
+            });            
+
+            return {
+                state2,
+                plusNumbers2,
+                state3
+            }
+        },
         beforeCreate() {},
         created() {},
         beforeMount() {},
@@ -329,6 +384,9 @@
             },
             checkChild(){
                 alert(this.msg)
+            },
+            plusNumbers1() {
+                this.result1 = parseInt(this.num1) + parseInt(this.num2);
             }
         }
     }
