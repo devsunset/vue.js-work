@@ -72,6 +72,26 @@ Vue.js
 * Vuex Install
   - cd vue_project
   - npm install vuex@next --save
+
+
+## Project setup
+```
+npm install
+```
+
+### Compiles and hot-reloads for development
+```
+npm run serve
+```
+
+### Compiles and minifies for production
+```
+npm run build
+```
+
+### Lints and fixes files
+```
+npm run lint
  
 
 
