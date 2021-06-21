@@ -2,6 +2,8 @@ import {
     createStore
   } from 'vuex'
   
+  import persistedstate from 'vuex-persistedstate';
+
   const store = createStore({
     state() {
       return {
@@ -10,7 +12,8 @@ import {
           product_id: 1,
           product_name: "아이폰 거치대",
           category: "A"
-        }]
+        }],
+        user: {}
       }
     },
     getters: {
@@ -21,41 +24,27 @@ import {
     mutations: {
       increment(state) {
         state.count++
+      },
+      user(state, data) {
+        state.user = data;
       }
     },
+    // plugins: [
+    //   persistedstate({
+    //     paths: ['user']
+    //   })
+    // ],
     actions: {
       increment(context) {
         //비동기 처리 로직 수행 가능
         context.commit('increment')
       }
-    }
-  })
-  
-export default store;
-/*
-import {
-  createStore
-} from 'vuex'
-
-import persistedstate from 'vuex-persistedstate';
-
-const store = createStore({
-  state() {
-    return {
-      user: {}
-    }
-  },
-  mutations: {
-    user(state, data) {
-      state.user = data;
-    }
-  },
+    },
   plugins: [
     persistedstate({
       paths: ['user']
     })
   ]
-});
-
+  })
+  
 export default store;
-*/

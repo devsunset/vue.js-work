@@ -72,6 +72,7 @@ Vue.js
 * Vuex Install
   - cd vue_project
   - npm install vuex@next --save
+  - npm install --save vuex-persistedstate
 
 
 ## Project setup
