@@ -33,3 +33,31 @@ import {
   
   export default store;
   
+
+/*
+ import {
+    createStore
+  } from 'vuex'
+
+  import persistedstate from 'vuex-persistedstate';
+  
+  const store = createStore({
+    state() {
+      return {
+        user : {}
+      }
+    },
+    mutations: {
+      user(state, data) {
+        state.user = data;
+      }
+    },
+    plugins: {
+        persistedstate({
+                paths: ['users']
+        })
+    ]
+});
+  
+export default store;
+*/
