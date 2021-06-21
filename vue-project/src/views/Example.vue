@@ -242,8 +242,14 @@
 
     <child-component  title="Childcomponent CompositionAPIInject"/>
 
-    <div style="height:100px;">
+    <div style="height:15px;">
         <p v-pin="position"> page fix area (position:fixed;top50px,left;200px;)</p>
+    </div>
+
+    <div>
+        <h3>{{ $translate("ko.hi") }}</h3>
+        <h3>{{ $translate("en.hi") }}</h3>
+        <h3>{{ i18n.ko.hi }}</h3>
     </div>
 
 
@@ -270,6 +276,7 @@
         name : '',
         components : {ChildComponent,ModalLayout},
         mixins: [ApiMixin],
+        inject : ['i18n'],
         data() {
             return {
                 dataBindMsg : 'Hello World'
@@ -384,6 +391,7 @@
             this.$refs.title.focus();
             this.mixtest = await this.$api("https://jsonplaceholder.typicode.com/posts","get");
             console.log(this.mixtest)
+            console.log(this.i18n)
 
         },
         beforeUpdate() {},
