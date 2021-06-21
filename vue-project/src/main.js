@@ -26,6 +26,7 @@ app.directive('focus',{
   }
 })
 app.mount('#app')
+window.Kakao.init("fc3ffc2cce82269dd8b0295c881c7e2c"); //발급 받은 앱키
 
 /*
 import {

@@ -26,7 +26,28 @@ const routes = [
     path: '/example',
     name: 'Example',
     component: () => import(/* webpackChunkName: "example" */ '../views/Example.vue')
+  },
+  {
+    path: '/kakaologin',
+    name: 'KakaoLogin',
+    component: () => import( /* webpackChunkName: "kakaologin" */ '../views/KakaoLogin.vue')
+  },
+  {
+    path: '/login',
+    name: 'KakaoLogin',
+    component: () => import( /* webpackChunkName: "kakaologin" */ '../views/KakaoLogin.vue')
+  },
+  {
+    path: '/naverlogin',
+    name: 'NaverLogin',
+    component: () => import( /* webpackChunkName: "naverlogin" */ '../views/NaverLogin.vue')
+  },
+  {
+    path: '/googlelogin',
+    name: 'GoogleLogin',
+    component: () => import( /* webpackChunkName: "googlelogin" */ '../views/GoogleLogin.vue')
   }
+
 ]
 
 const router = createRouter({
