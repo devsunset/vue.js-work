@@ -263,15 +263,6 @@
     import {comPlusCalculator} from '../common.js'
     import ApiMixin from '../api.js'
 
-    function plusCalculator(){
-           let state4 = reactive({
-                num7 : 0
-                ,num8 : 0
-                ,result4 :  computed (() =>  parseInt(state4.num7) + parseInt(state4.num8))
-            });            
-            return toRefs(state4);
-    }
-
     export default {
         name : '',
         components : {ChildComponent,ModalLayout},
@@ -461,6 +452,16 @@
             }
         }
     }
+
+    function plusCalculator(){
+           let state4 = reactive({
+                num7 : 0
+                ,num8 : 0
+                ,result4 :  computed (() =>  parseInt(state4.num7) + parseInt(state4.num8))
+            });            
+            return toRefs(state4);
+    }
+
 </script>
 
 <style scoped>
