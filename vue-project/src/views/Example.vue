@@ -256,8 +256,8 @@
     </div>
 
     <div>
-        <p>Count : {{count}}</p>
-        <p>cartCount : {{cartCount}}</p>
+        <p>Count : {{ count }}</p>
+        <p>cartCount : {{ cartCount }}</p>
         <button type="button" @click="increment">Increment</button>
     </div>
 
@@ -338,7 +338,7 @@
             count(){
                 return this.$store.state.count;
             },
-            countCount() {
+            cartCount() {
                 return this.$store.getters.cartCount;
             }
         },

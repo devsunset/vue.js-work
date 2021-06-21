@@ -1,6 +1,7 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
+import store from './store'
 import mixins from './mixins'
 import i18nPlugin from './plugins/i18n' 
 
@@ -16,6 +17,7 @@ const i18nStrings = {
 //createApp(App).use(router).mount('#app')
 const app = createApp(App)
 app.use(router)
+app.use(store)
 app.use(i18nPlugin, i18nStrings) 
 app.mixin(mixins)
 app.directive('focus',{
