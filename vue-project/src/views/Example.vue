@@ -215,7 +215,7 @@
         <span>{{state2.result2}}</span>
     </div>
 
-     <div>
+    <div>
         <input type="text" v-model="state3.num5"/>
         <span> + </span>
         <input type="text" v-model="state3.num6"/>
@@ -223,13 +223,31 @@
         <span>{{state3.result3}}</span>
     </div>
 
+    <div>
+        <input type="text" v-model="num7"/>
+        <span> + </span>
+        <input type="text" v-model="num8"/>
+        <span> = </span>
+        <span>{{result4}}</span>
+    </div>
+
+
 </div>
 </template>
  
 <script>
     import ChildComponent from '../components/ChildComponent.vue'
     import ModalLayout from '../components/SlotModalLayout'
-    import {reactive , computed} from 'vue'
+    import {reactive , computed , toRefs} from 'vue'
+
+    function plusCalculator(){
+           let state4 = reactive({
+                num7 : 0
+                ,num8 : 0
+                ,result4 :  computed (() =>  parseInt(state4.num7) + parseInt(state4.num8))
+            });            
+            return toRefs(state4);
+    }
 
     export default {
         name : '',
@@ -310,7 +328,6 @@
                 ,num4 : 0
                 ,result2 : 0
             });
-
             function plusNumbers2(){
                 state2.result2 = parseInt(state2.num3) + parseInt(state2.num4);
             }
@@ -318,12 +335,15 @@
                 num5 : 0
                 ,num6 : 0
                 ,result3 :  computed (() =>  parseInt(state3.num5) + parseInt(state3.num6))
-            });            
-
+            });     
+            let {num7, num8, result4} = plusCalculator();
             return {
                 state2,
                 plusNumbers2,
-                state3
+                state3,
+                num7,
+                num8,
+                result4
             }
         },
         beforeCreate() {},
