@@ -1,5 +1,5 @@
 <template>
-    <h3>{{ title }} : {{ age }} : <span v-if="condition">boolean true</span> : {{ arrayvalue }}  : {{ objectvalue !=null ? objectvalue.id : '' }} : <button type="button" @click="childFunc()" ref="btn">click</button></h3>
+    <h3>{{ title }} : {{ age }} : <span v-if="condition">boolean true</span> : {{ arrayvalue }}  : {{ objectvalue !=null ? objectvalue.id : '' }} : <button type="button" @click="childFunc()" ref="btn">click</button> {{ msg }} </h3>
 </template>
 
 <script>
@@ -62,6 +62,7 @@
         data() {
             return {
                 sampleData: ''
+                ,msg : ''
             };
         },
         setup() {},
@@ -76,6 +77,10 @@
         methods : {
             childFunc() {
                 alert('child click');
+                this.$emit('send-message',this.msg)
+            },
+            callFromParent(){
+                alert( 'call from parent ');
             }
         }
     }

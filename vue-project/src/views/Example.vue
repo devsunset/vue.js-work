@@ -136,6 +136,10 @@
     </div>  
 
     <div>
+            <h1>----------------------------------------------------------------------</h1>
+    </div>
+
+    <div>
         <button type="button" @click="apiCall">use axios api call</button>
         <table>
             <thead>
@@ -167,7 +171,11 @@
         <ChildComponent  title="Childcomponent boolean use bind" v-bind:condition="true"/> 
         <ChildComponent  title="Childcomponent array use bind" v-bind:arrayvalue="[1,2,3]"/>
         <ChildComponent  title="Childcomponent object use bind" v-bind:objectvalue="{id : 'object', key : '1'}"/>
-        <span> <ChildComponent  title="Childcomponent click event call" ref="child_component"/><button type="button" @click="childFuncCall()">clild click</button></span>
+        <button type="button" @click="childClick">child click</button>
+        <button type="button" @click="childFuncCall()">child fucntion call</button>
+        <button type="button" @click="changeChildData()">change child data</button>
+        <button type="button" @click="checkChild()">check child</button>
+        <child-component  title="Childcomponent From parent child control" @send-message="sendMessage" ref="child_component"/>
     </div>
 
 </div>
@@ -185,7 +193,7 @@
                 ,htmlString : '<font color="blue"> html Binding :  Hello World</font>'
                 ,valueModel : 'Hello World'
                 ,numberModel : 1
-                ,message : 'hello \nworld'
+                ,message : 'hello \nworld' 
                 ,type : 'B'
                 ,checked : true
                 ,checkedvalue : true
@@ -228,6 +236,9 @@
         computed : {
             fullName(){
                 return this.firstName +' '+this.lastName
+            },
+            msg() {
+                return this.$refs.child_component.msg;
             }
         },
         watch : {
@@ -280,9 +291,21 @@
             async apiCall(){
                 this.posts = await this.$api("https://jsonplaceholder.typicode.com/posts","get");
             },
-            childFuncCall(){
-                alert('parent click -> child button click')
+            childClick(){
+                alert('parent click -> child button click');
                 this.$refs.child_component.$refs.btn.click();
+            },
+            childFuncCall(){                
+                this.$refs.child_component.callFromParent();
+            },
+            changeChildData(){
+                this.$refs.child_component.msg = 'change child data';
+            },
+            sendMessage(data){
+                alert(data)
+            },
+            checkChild(){
+                alert(this.msg)
             }
         }
     }
