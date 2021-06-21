@@ -3,6 +3,9 @@
 </template>
 
 <script>
+import { onMounted } from '@vue/runtime-core';
+import { inject } from 'vue';
+
     export default {
         name : '',
         props : {
@@ -66,7 +69,14 @@
                 ,provideInjectMsg : ''
             };
         },
-        setup() {},
+        setup() {
+            onMounted(() =>{
+                console.log('Component is mounted')
+            })
+            const setuptitle = inject('setuptitle')
+            console.log(setuptitle)
+            return {setuptitle}
+        },
         beforeCreate() {},
         created() {},
         beforeMount() {},

@@ -11,7 +11,7 @@
     <div>{{htmlString}}</div>
     <div v-html="htmlString"></div>
 
-    <div><input type="text" v-model="valueModel"/></div>
+    <div><input type="text" v-model="valueModel" v-focus/></div>
 
     <div><input type="number" v-model.number="numberModel"/></div>
 
@@ -231,6 +231,21 @@
         <span>{{result4}}</span>
     </div>
 
+    <div>
+        <input type="text" v-model="num9"/>
+        <span> + </span>
+        <input type="text" v-model="num10"/>
+        <span> = </span>
+        <span>{{result5}}</span>
+    </div>
+
+
+    <child-component  title="Childcomponent CompositionAPIInject"/>
+
+    <div style="height:100px;">
+        <p v-pin="position"> page fix area (position:fixed;top50px,left;200px;)</p>
+    </div>
+
 
 </div>
 </template>
@@ -238,7 +253,9 @@
 <script>
     import ChildComponent from '../components/ChildComponent.vue'
     import ModalLayout from '../components/SlotModalLayout'
-    import {reactive , computed , toRefs} from 'vue'
+    import {reactive , computed , toRefs, onMounted, provide} from 'vue'
+    import {comPlusCalculator} from '../common.js'
+    import ApiMixin from '../api.js'
 
     function plusCalculator(){
            let state4 = reactive({
@@ -252,6 +269,7 @@
     export default {
         name : '',
         components : {ChildComponent,ModalLayout},
+        mixins: [ApiMixin],
         data() {
             return {
                 dataBindMsg : 'Hello World'
@@ -299,6 +317,8 @@
                 ,num1: 0
                 ,num2: 0
                 ,result1: 0
+                ,mixtest: []
+                ,position : { top:50, left:100}
             };
         },
         computed : {
@@ -337,20 +357,34 @@
                 ,result3 :  computed (() =>  parseInt(state3.num5) + parseInt(state3.num6))
             });     
             let {num7, num8, result4} = plusCalculator();
+            let {num9, num10, result5} = comPlusCalculator();
+            
+            onMounted(() =>{
+                console.log('Component is mounted')
+            })
+
+            provide('setuptitle', 'Vue.js project')
+
             return {
                 state2,
                 plusNumbers2,
                 state3,
                 num7,
                 num8,
-                result4
+                result4,
+                num9,
+                num10,
+                result5
             }
         },
         beforeCreate() {},
         created() {},
         beforeMount() {},
-        mounted() {
+        async mounted() {
             this.$refs.title.focus();
+            this.mixtest = await this.$api("https://jsonplaceholder.typicode.com/posts","get");
+            console.log(this.mixtest)
+
         },
         beforeUpdate() {},
         updated() {},
@@ -407,6 +441,15 @@
             },
             plusNumbers1() {
                 this.result1 = parseInt(this.num1) + parseInt(this.num2);
+            }
+        },
+        directives : {
+            pin : {
+                mounted(el,binding){
+                    el.style.position = 'fixed';
+                    el.style.top = binding.value.top +'px';
+                    el.style.left = binding.value.left +'px';
+                }
             }
         }
     }
