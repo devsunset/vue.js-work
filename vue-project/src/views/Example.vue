@@ -242,7 +242,7 @@
     <child-component  title="Childcomponent CompositionAPIInject"/>
 
     <div style="height:15px;">
-        <p v-pin="position"> page fix area (position:fixed;top50px,left;200px;)</p>
+        <p v-pin="position"> directives example - page fix area (position:fixed;top50px,left;200px;)</p>
     </div>
 
     <div>
@@ -394,7 +394,7 @@
         created() {},
         beforeMount() {},
         async mounted() {
-            this.$refs.title.focus();
+            //this.$refs.title.focus();
             this.mixtest = await this.$api("https://jsonplaceholder.typicode.com/posts","get");
             console.log(this.mixtest)
             console.log(this.i18n)

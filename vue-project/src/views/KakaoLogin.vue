@@ -1,12 +1,14 @@
 <template>
   <div>
+    <div>
     <a id="custom-login-btn" @click="kakaoLogin()">
       <img
         src="//k.kakaocdn.net/14/dn/btqCn0WEmI3/nijroPfbpCa4at5EIsjyf0/o.jpg"
         width="222"
       />
     </a>
-    <button type="button" @click="kakaoLogout">카카오 로그아웃</button>
+    </div>
+    <button type="button" v-if="kkologin_flag" @click="kakaoLogout">카카오 로그아웃</button>
   </div>
 </template>
 <script>
@@ -16,6 +18,7 @@ export default {
   data() {
     return {
       code: "",
+      kkologin_flag: false
     };
   },
   mounted() {
@@ -42,6 +45,7 @@ export default {
           //로그인 처리 구현
           console.log(kakao_account);
           this.$store.commit("user", kakao_account);
+          this.kkologin_flag = true; 
           alert("로그인 성공!");
         },
         fail: (error) => {
@@ -53,12 +57,14 @@ export default {
     kakaoLogout() {
       if (!window.Kakao.Auth.getAccessToken()) {
         console.log("Not logged in.");
+        this.kkologin_flag = false;
         return;
       }
       window.Kakao.Auth.logout((response) => {
         //로그아웃
         console.log("access token:", window.Kakao.Auth.getAccessToken());
         console.log("log out:", response);
+        this.kkologin_flag = false;
       });
     },
   },
