@@ -29,15 +29,18 @@ fs.watchFile(__dirname + '/sql.js', (curr, prev) => {
   sql = require('./sql.js');
 });
 
-const db = {
-  database: "dev_class",
-  connectionLimit: 10,
-  host: "192.168.219.102",
-  user: "root",
-  password: "mariadb"
-};
+    // --- mariadb backup  start ---
+    // const db = {
+    //   database: "dev_class",
+    //   connectionLimit: 10,
+    //   host: "127.0.0.1",
+    //   user: "root",
+    //   password: "mariadb"
+    // };
+    // const dbPool = require('mysql').createPool(db);
+    // --- mariadb backup  end ---
 
-const dbPool = require('mysql').createPool(db);
+var sqlite3 = require('sqlite3').verbose();
 
 app.post('/api/login', async (request, res) => {
   // request.session['email'] = 'seungwon.go@gmail.com';
@@ -65,7 +68,6 @@ app.post('/api/logout', async (request, res) => {
 });
 
 app.post('/upload/:productId/:type/:fileName', async (request, res) => {
-
   let {
     productId,
     type,
@@ -148,3 +150,19 @@ const req = {
     }));
   }
 };
+
+let db = new sqlite3.Database('./dev_class.db'/*dbPath*/, sqlite3.OPEN_READWRITE, (err) => {
+  if (err) {
+      console.error(err.message);
+      console.error(dbPath);
+  } else {
+      console.log('Connected to the database.');
+  }
+}); 
+
+db.close((err) =>{
+if(err){
+  console.error(err.message);
+}
+console.log('Close the database connection.');
+});
