@@ -29,18 +29,16 @@ fs.watchFile(__dirname + '/sql.js', (curr, prev) => {
   sql = require('./sql.js');
 });
 
-    // --- mariadb backup  start ---
-    // const db = {
-    //   database: "dev_class",
-    //   connectionLimit: 10,
-    //   host: "127.0.0.1",
-    //   user: "root",
-    //   password: "mariadb"
-    // };
-    // const dbPool = require('mysql').createPool(db);
-    // --- mariadb backup  end ---
-
-var sqlite3 = require('sqlite3').verbose();
+// --- mariadb backup  start ---
+// const db = {
+//   database: "dev_class",
+//   connectionLimit: 10,
+//   host: "127.0.0.1",
+//   user: "root",
+//   password: "mariadb"
+// };
+// const dbPool = require('mysql').createPool(db);
+// --- mariadb backup  end ---
 
 app.post('/api/login', async (request, res) => {
   // request.session['email'] = 'seungwon.go@gmail.com';
@@ -137,6 +135,8 @@ app.post('/api/:alias', async (request, res) => {
   }
 });
 
+/*
+// --- mariadb backup  start ---
 const req = {
   async db(alias, param = [], where = '') {
     return new Promise((resolve, reject) => dbPool.query(sql[alias].query + where, param, (error, rows) => {
@@ -150,19 +150,39 @@ const req = {
     }));
   }
 };
+// --- mariadb backup  end ---
+*/
 
-let db = new sqlite3.Database('./dev_class.db'/*dbPath*/, sqlite3.OPEN_READWRITE, (err) => {
-  if (err) {
-      console.error(err.message);
-      console.error(dbPath);
-  } else {
-      console.log('Connected to the database.');
+const sqlite3 = require('sqlite3').verbose();
+
+const req = {
+  async db(alias, param = [], where = '') {
+    return new Promise((resolve, reject) => new sqlite3.Database('./dev_class.db').all(sql[alias].query + where, param, (error, rows) => {
+      if (error) {
+        if (error.code != 'ER_DUP_ENTRY')
+          console.log(error);
+        resolve({
+          error
+        });
+      } else resolve(rows);
+    }));
   }
-}); 
+};
 
-db.close((err) =>{
-if(err){
-  console.error(err.message);
-}
-console.log('Close the database connection.');
-});
+/*
+    // sqlite3 example
+    let db = new sqlite3.Database('./dev_class.db');
+
+    let sqlx = `SELECT * FROM t_category`;
+
+    db.all(sqlx, [], (err, rows) => {
+      if (err) {
+        throw err;
+      }
+      rows.forEach((row) => {
+        console.log(row);
+      });
+    });
+
+    db.close();
+*/
