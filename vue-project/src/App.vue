@@ -2,7 +2,9 @@
   <div id="nav">
     <router-link to="/">Home</router-link> |
     <router-link to="/example">Example</router-link> |
-    <router-link to="/login">Login</router-link> 
+    <router-link to="/login">KaKao Login</router-link> |
+    <router-link to="/naverlogin">Naver Login</router-link> |
+    <router-link to="/googlelogin">Google Login</router-link> 
   </div>
   <router-view/>
 </template>

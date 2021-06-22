@@ -45,6 +45,7 @@ export default {
     logout() {
       const accessToken = this.naverLogin.accessToken.accessToken;
       const url = `https://nid.naver.com/oauth2.0/token?grant_type=delete&client_id=zFcLWPMTcDQTNTB6iIOy&client_secret=bUW7FZMpS9&access_token=${accessToken}&service_provider=NAVER`;
+      console.log(url)
       axios.get(url).then((res) => {
         this.naverlogin_flag = false
         console.log(res.data);
