@@ -261,6 +261,17 @@
         <button type="button" @click="increment">Increment</button>
     </div>
 
+    <div>
+            <h1>----------------------------------------------------------------------</h1>
+    </div>
+
+    <h2>auth2</h2>
+    <div><router-link to="/login">KaKao Login</router-link> | https://developers.kakao.com/</div>
+    <div><router-link to="/naverlogin">Naver Login</router-link> | https://developers.naver.com/main/</div>
+    <div><router-link to="/googlelogin">Google Login</router-link>  | https://console.cloud.google.com</div>
+         
+    
+    
 
 </div>
 </template>
