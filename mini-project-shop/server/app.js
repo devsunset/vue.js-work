@@ -135,6 +135,22 @@ app.post('/api/:alias', async (request, res) => {
   }
 });
 
+const sqlite3 = require('sqlite3').verbose();
+
+const req = {
+  async db(alias, param = [], where = '') {
+    return new Promise((resolve, reject) => new sqlite3.Database('./dev_class.db').all(sql[alias].query + where, param, (error, rows) => {
+      if (error) {
+        if (error.code != 'ER_DUP_ENTRY')
+          console.log(error);
+        resolve({
+          error
+        });
+      } else resolve(rows);
+    }));
+  }
+};
+
 /*
 // --- mariadb backup  start ---
 const req = {
@@ -152,22 +168,6 @@ const req = {
 };
 // --- mariadb backup  end ---
 */
-
-const sqlite3 = require('sqlite3').verbose();
-
-const req = {
-  async db(alias, param = [], where = '') {
-    return new Promise((resolve, reject) => new sqlite3.Database('./dev_class.db').all(sql[alias].query + where, param, (error, rows) => {
-      if (error) {
-        if (error.code != 'ER_DUP_ENTRY')
-          console.log(error);
-        resolve({
-          error
-        });
-      } else resolve(rows);
-    }));
-  }
-};
 
 /*
     // sqlite3 example
