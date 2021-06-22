@@ -30,9 +30,9 @@ DROP TABLE IF EXISTS t_image;
 
 CREATE TABLE t_image (
    id INTEGER PRIMARY KEY AUTOINCREMENT,
-  `product_id` integer NOT NULL,
-  `type` integer NOT NULL DEFAULT 1 COMMENT '1-썸네일, 2-제품이미지, 3-제품설명이미지',
-  `path` text NOT NULL DEFAULT ''
+  product_id integer NOT NULL,
+  type integer NOT NULL DEFAULT 1,-- COMMENT '1-썸네일, 2-제품이미지, 3-제품설명이미지',
+  path text NOT NULL DEFAULT ''
 ) ;
 
 INSERT INTO `t_image` (`id`, `product_id`, `type`, `path`)
@@ -54,20 +54,20 @@ VALUES
 ------------------------------------------------------------
 -- table t_product
 ------------------------------------------------------------
-DROP TABLE IF EXISTS `t_product`;
+DROP TABLE IF EXISTS t_product;
 
-CREATE TABLE `t_product` (
+CREATE TABLE t_product (
   id integer PRIMARY KEY AUTOINCREMENT,
-  `product_name` text NOT NULL DEFAULT '',
-  `product_price` integer NOT NULL DEFAULT 0,
-  `delivery_price` integer NOT NULL DEFAULT 0,
-  `add_delivery_price` integer NOT NULL DEFAULT 0,
-  `tags` text DEFAULT NULL,
-  `outbound_days` integer NOT NULL DEFAULT 5,
-  `seller_id` integer  NOT NULL,
-  `category_id` integer  NOT NULL,
-  `active_yn` text NOT NULL DEFAULT 'Y',
-  `created_date` datetime NOT NULL DEFAULT current_timestamp()
+  product_name text NOT NULL DEFAULT '',
+  product_price integer NOT NULL DEFAULT 0,
+  delivery_price integer NOT NULL DEFAULT 0,
+  add_delivery_price integer NOT NULL DEFAULT 0,
+  tags text DEFAULT NULL,
+  outbound_days integer NOT NULL DEFAULT 5,
+  seller_id integer  NOT NULL,
+  category_id integer  NOT NULL,
+  active_yn text NOT NULL DEFAULT 'Y',
+  created_date datetime DEFAULT CURRENT_TIMESTAMP
 ) ;
 
 INSERT INTO `t_product` (`id`, `product_name`, `product_price`, `delivery_price`, `add_delivery_price`, `tags`, `outbound_days`, `seller_id`, `category_id`, `active_yn`, `created_date`)
@@ -80,13 +80,13 @@ VALUES
 ------------------------------------------------------------
 -- table t_seller
 ------------------------------------------------------------
-DROP TABLE IF EXISTS `t_seller`;
+DROP TABLE IF EXISTS t_seller;
 
-CREATE TABLE `t_seller` (
+CREATE TABLE t_seller (
   id integer PRIMARY KEY AUTOINCREMENT,
-  `name` text NOT NULL DEFAULT '',
-  `email` text NOT NULL DEFAULT '',
-  `phone` text NOT NULL DEFAULT ''
+  name text NOT NULL DEFAULT '',
+  email text NOT NULL DEFAULT '',
+  phone text NOT NULL DEFAULT ''
 ) ;
 
 INSERT INTO `t_seller` (`id`, `name`, `email`, `phone`)
@@ -99,10 +99,9 @@ VALUES
 DROP TABLE IF EXISTS t_user;
 
 CREATE TABLE t_user (
-  email text NOT NULL DEFAULT ,
-  type integer NOT NULL DEFAULT 1 COMMENT '1-buyer, 2-seller',
-  nickname text DEFAULT NULL,
-  PRIMARY KEY (`email`)
+  email text NOT NULL   PRIMARY KEY  ,
+  type integer NOT NULL DEFAULT 1,-- COMMENT '1-buyer, 2-seller',
+  nickname text DEFAULT NULL
 ) ;
 
 INSERT INTO `t_user` (`email`, `type`, `nickname`)
