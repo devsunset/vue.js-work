@@ -3,7 +3,7 @@
   <div id="google-signin-btn"></div>
   <button type="button" v-if="googlelogin_flag" @click="signOut">구글 로그아웃</button>
 </div>
-</template>
+</template> 
 <script>
 export default {
   data() {

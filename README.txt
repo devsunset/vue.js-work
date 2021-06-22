@@ -54,10 +54,16 @@ Vue.js
 		npm install -g package_name
 		npm install package_name --save
 
+    
+
 * Vue Project Create
   - vue create vue-preoject (default)
   - vue create vue-project-manually 
   - vue ui (vue-project-manager)
+
+* Vue Cli service Install
+  - cd vue_project
+  - vue add @vue/cli-service
 
 * Vue Route Install
   - cd vue_project
@@ -73,7 +79,6 @@ Vue.js
   - cd vue_project
   - npm install vuex@next --save
   - npm install --save vuex-persistedstate
-
 
 ## Project setup
 ```

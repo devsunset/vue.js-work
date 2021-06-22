@@ -1,14 +1,12 @@
-const target = 'http://127.0.0.1:3000';
-
 module.exports = {
+    chainWebpack: config => {
+      config.plugins.delete('prefetch'); //prefetch ì­ì 
+    },
     devServer: {
-        port : 8080,
-        proxy: {
-            // proxy reques api
-            '^/api' : {
-                target,
-                changeOrigin: true
-            }
+      proxy: {
+        '/oauth2.0': {
+          target: 'https://nid.naver.com'
         }
-    }
+      }
+    }  
 }
