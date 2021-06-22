@@ -8,7 +8,7 @@
       />
     </a>
     </div>
-    <button type="button" v-if="kkologin_flag" @click="kakaoLogout">카카오 로그아웃</button>
+    <button type="button" v-if="kakaologin_flag" @click="kakaoLogout">카카오 로그아웃</button>
   </div>
 </template>
 <script>
@@ -18,7 +18,7 @@ export default {
   data() {
     return {
       code: "",
-      kkologin_flag: false
+      kakaologin_flag: false
     };
   },
   mounted() {
@@ -45,7 +45,7 @@ export default {
           //로그인 처리 구현
           console.log(kakao_account);
           this.$store.commit("user", kakao_account);
-          this.kkologin_flag = true; 
+          this.kakaologin_flag = true; 
           alert("로그인 성공!");
         },
         fail: (error) => {
@@ -57,14 +57,14 @@ export default {
     kakaoLogout() {
       if (!window.Kakao.Auth.getAccessToken()) {
         console.log("Not logged in.");
-        this.kkologin_flag = false;
+        this.kakaologin_flag = false;
         return;
       }
       window.Kakao.Auth.logout((response) => {
         //로그아웃
         console.log("access token:", window.Kakao.Auth.getAccessToken());
         console.log("log out:", response);
-        this.kkologin_flag = false;
+        this.kakaologin_flag = false;
       });
     },
   },

@@ -1,7 +1,7 @@
 <template>
   <div>
     <div id="naverIdLogin"></div>
-    <button type="button" @click="logout">로그아웃</button>
+    <button type="button" v-if="naverlogin_flag" @click="logout">네이버 로그아웃</button>
   </div>
 </template>
 <script>
@@ -10,11 +10,12 @@ export default {
   data() {
     return {
       naverLogin: null,
+      naverlogin_flag: false
     };
   },
   mounted() {
     this.naverLogin = new window.naver.LoginWithNaverId({
-      clientId: "zFcLWPMTcDQTNTB6iIOy", //개발자센터에 등록한 ClientID
+      clientId: "GpNJS9bgPn9m8oQdUbzV", //개발자센터에 등록한 ClientID
       callbackUrl: "http://localhost:8080/naverlogin", //개발자센터에 등록한 callback Url
       isPopup: false, //팝업을 통한 연동처리 여부
       loginButton: { color: "green", type: 3, height: 60 }, //로그인 버튼의 타입을 지정
@@ -33,19 +34,21 @@ export default {
           this.naverLogin.reprompt();
           return;
         }
+          this.naverlogin_flag = true
       } else {
         console.log("callback 처리에 실패하였습니다.");
+        this.naverlogin_flag = false
       }
     });
   },
   methods: {
     logout() {
       const accessToken = this.naverLogin.accessToken.accessToken;
-      const url = `/oauth2.0/token?grant_type=delete&client_id=zFcLWPMTcDQTNTB6iIOy&client_secret=bUW7FZMpS9&access_token=${accessToken}&service_provider=NAVER`;
+      const url = `https://nid.naver.com/oauth2.0/token?grant_type=delete&client_id=zFcLWPMTcDQTNTB6iIOy&client_secret=bUW7FZMpS9&access_token=${accessToken}&service_provider=NAVER`;
       axios.get(url).then((res) => {
+        this.naverlogin_flag = false
         console.log(res.data);
-      });
-      //https://nid.naver.com/oauth2.0/token?grant_type=delete&client_id=zFcLWPMTcDQTNTB6iIOy&client_secret=bUW7FZMpS9&access_token=AAAAOOCeX4fAa_NxKPAmJW8C1UeLxGT3nM0wRV33irhyHyRua1JJrfrp0jZwfbOD0r502Id9mbhb0YiA9_NvCXGAwws&service_provider=NAVER
+      });      
     },
   },
 };
