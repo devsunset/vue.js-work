@@ -2,7 +2,6 @@
   <v-app>
 
     <v-app-bar density="compact">
-      <v-app-bar-title>Vue.js & Vuetify</v-app-bar-title>
       <v-spacer></v-spacer>
       <v-btn normal><router-link class="routerLink" to="/">Home</router-link></v-btn>
       <v-btn normal><router-link class="routerLink" to="/example">Example</router-link></v-btn>
