@@ -1,24 +1,6 @@
 # ************************************************************
-# Sequel Pro SQL dump
-# Version 4541
-#
-# http://www.sequelpro.com/
-# https://github.com/sequelpro/sequelpro
-#
-# Host: 192.168.219.100 (MySQL 5.5.5-10.5.8-MariaDB-1:10.5.8+maria~focal)
-# Database: dev_class
-# Generation Time: 2021-02-04 00:39:04 +0000
+# dev_class sql
 # ************************************************************
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-
 
 # Dump of table t_category
 # ------------------------------------------------------------
@@ -34,7 +16,6 @@ CREATE TABLE `t_category` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 LOCK TABLES `t_category` WRITE;
-/*!40000 ALTER TABLE `t_category` DISABLE KEYS */;
 
 INSERT INTO `t_category` (`id`, `category1`, `category2`, `category3`)
 VALUES
@@ -45,7 +26,6 @@ VALUES
 	(5,'전자제품','가전제품','냉장고'),
 	(6,'생필품','주방용품','조리도구');
 
-/*!40000 ALTER TABLE `t_category` ENABLE KEYS */;
 UNLOCK TABLES;
 
 
@@ -65,7 +45,6 @@ CREATE TABLE `t_image` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 LOCK TABLES `t_image` WRITE;
-/*!40000 ALTER TABLE `t_image` DISABLE KEYS */;
 
 INSERT INTO `t_image` (`id`, `product_id`, `type`, `path`)
 VALUES
@@ -83,7 +62,6 @@ VALUES
 	(24,8,2,'mousepad3.jpg'),
 	(25,8,3,'detail.jpg');
 
-/*!40000 ALTER TABLE `t_image` ENABLE KEYS */;
 UNLOCK TABLES;
 
 
@@ -112,7 +90,6 @@ CREATE TABLE `t_product` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 LOCK TABLES `t_product` WRITE;
-/*!40000 ALTER TABLE `t_product` DISABLE KEYS */;
 
 INSERT INTO `t_product` (`id`, `product_name`, `product_price`, `delivery_price`, `add_delivery_price`, `tags`, `outbound_days`, `seller_id`, `category_id`, `active_yn`, `created_date`)
 VALUES
@@ -121,7 +98,6 @@ VALUES
 	(8,'테스트 제품 AAA',23000,5000,2500,'테스트,노트북,악세사리',5,1,1,'Y','2021-01-21 00:41:14'),
 	(9,'제품 테스트2',30000,5000,5000,'',5,1,6,'Y','2021-01-21 01:19:28');
 
-/*!40000 ALTER TABLE `t_product` ENABLE KEYS */;
 UNLOCK TABLES;
 
 
@@ -139,13 +115,11 @@ CREATE TABLE `t_seller` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 LOCK TABLES `t_seller` WRITE;
-/*!40000 ALTER TABLE `t_seller` DISABLE KEYS */;
 
 INSERT INTO `t_seller` (`id`, `name`, `email`, `phone`)
 VALUES
-	(1,'개발자의품격','seungwon.go@gmail.com','010-1111-1111');
+	(1,'toyporject','devsunset@gmail.com','010-1111-1111');
 
-/*!40000 ALTER TABLE `t_seller` ENABLE KEYS */;
 UNLOCK TABLES;
 
 
@@ -162,20 +136,10 @@ CREATE TABLE `t_user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 LOCK TABLES `t_user` WRITE;
-/*!40000 ALTER TABLE `t_user` DISABLE KEYS */;
 
 INSERT INTO `t_user` (`email`, `type`, `nickname`)
 VALUES
-	('seungwon.go@gmail.com',1,'고승원');
+	('devsunset@gmail.com',1,'toyproject');
 
-/*!40000 ALTER TABLE `t_user` ENABLE KEYS */;
+
 UNLOCK TABLES;
-
-
-
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
