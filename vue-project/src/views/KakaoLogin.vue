@@ -4,7 +4,7 @@
       <v-card
           :loading="loading"
           class="mx-auto my-12"
-          max-width="277"
+          max-width="277" height="10"
         >
           <a id="custom-login-btn" @click="kakaoLogin()">
             <img

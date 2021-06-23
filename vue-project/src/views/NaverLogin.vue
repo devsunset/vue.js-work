@@ -4,7 +4,7 @@
       <v-card
           :loading="loading"
           class="mx-auto my-12"
-          max-width="277"
+          max-width="277" height="10"
         >
         <div id="naverIdLogin"></div>
         <v-btn v-if="naverlogin_flag" @click="logout" width="277">로그아웃</v-btn>
