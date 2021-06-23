@@ -97,7 +97,6 @@ app.post('/upload/:productId/:type/:fileName', async (request, res) => {
       type: type,
       path: fileName
     }]);
-
     if (error) {
       res.send({
         error
@@ -128,7 +127,6 @@ app.post('/apirole/:alias', async (request, res) => {
       error: 'You need to login.'
     });
   }
-
   try {
     res.send(await req.db(request.params.alias));
   } catch (err) {
