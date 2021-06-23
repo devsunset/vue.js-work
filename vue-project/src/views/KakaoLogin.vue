@@ -1,16 +1,17 @@
 <template>
-  <div>
-    <div>
+<v-container>
+   <v-row class="text-center">
     <a id="custom-login-btn" @click="kakaoLogin()">
       <img
         src="//k.kakaocdn.net/14/dn/btqCn0WEmI3/nijroPfbpCa4at5EIsjyf0/o.jpg"
         width="222"
       />
     </a>
-    </div>
-    <button type="button" v-if="kakaologin_flag" @click="kakaoLogout">카카오 로그아웃</button>
-  </div>
+    <v-button type="button" v-if="kakaologin_flag" @click="kakaoLogout">카카오 로그아웃</v-button>
+  </v-row>
+</v-container>
 </template>
+
 <script>
 // import axios from 'axios'
 export default {
