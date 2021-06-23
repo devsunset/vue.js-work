@@ -54,8 +54,6 @@ Vue.js
 		npm install -g package_name
 		npm install package_name --save
 
-    
-
 * Vue Project Create
   - vue create vue-preoject (default)
   - vue create vue-project-manually 
@@ -80,25 +78,9 @@ Vue.js
   - npm install vuex@next --save
   - npm install --save vuex-persistedstate
 
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
- 
+* Vuetify 3 Alpha Install
+  - cd vue_project
+  - vue add vuetify
 
 
 

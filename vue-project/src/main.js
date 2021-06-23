@@ -1,4 +1,5 @@
 import { createApp } from 'vue'
+import vuetify from './plugins/vuetify'
 import App from './App.vue'
 import router from './router'
 import store from './store'
@@ -17,6 +18,7 @@ const i18nStrings = {
 //createApp(App).use(router).mount('#app')
 const app = createApp(App)
 app.use(router)
+app.use(vuetify)
 app.use(store)
 app.use(i18nPlugin, i18nStrings) 
 app.mixin(mixins)
@@ -26,5 +28,4 @@ app.directive('focus',{
   }
 })
 app.mount('#app')
-window.Kakao.init("fc3ffc2cce82269dd8b0295c881c7e2c"); //발급 받은 앱키
-
+window.Kakao.init("fc3ffc2cce82269dd8b0295c881c7e2c");
