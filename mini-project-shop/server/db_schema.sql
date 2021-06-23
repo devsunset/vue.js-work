@@ -39,9 +39,7 @@ CREATE TABLE `t_image` (
   `product_id` int(11) unsigned NOT NULL,
   `type` int(1) NOT NULL DEFAULT 1 COMMENT '1-썸네일, 2-제품이미지, 3-제품설명이미지',
   `path` varchar(150) NOT NULL DEFAULT '',
-  PRIMARY KEY (`id`),
-  KEY `product_id` (`product_id`),
-  CONSTRAINT `t_image_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `t_product` (`id`)
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 LOCK TABLES `t_image` WRITE;
@@ -82,11 +80,7 @@ CREATE TABLE `t_product` (
   `category_id` int(11) unsigned NOT NULL,
   `active_yn` enum('Y','N') NOT NULL DEFAULT 'Y',
   `created_date` datetime NOT NULL DEFAULT current_timestamp(),
-  PRIMARY KEY (`id`),
-  KEY `seller_id` (`seller_id`),
-  KEY `category_id` (`category_id`),
-  CONSTRAINT `t_product_ibfk_1` FOREIGN KEY (`seller_id`) REFERENCES `t_seller` (`id`),
-  CONSTRAINT `t_product_ibfk_2` FOREIGN KEY (`category_id`) REFERENCES `t_category` (`id`)
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 LOCK TABLES `t_product` WRITE;
