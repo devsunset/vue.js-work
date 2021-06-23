@@ -36,10 +36,12 @@ export default {
       console.log("Email: " + profile.getEmail());
       const id_token = googleUser.getAuthResponse().id_token;
       console.log("ID Token: " + id_token);
+      alert("로그인");
     },
     signOut () {
       window.gapi.auth2.getAuthInstance().disconnect();
        this.googlelogin_flag = false
+       alert("로그아웃");
     }
   }
 }

@@ -44,6 +44,7 @@ export default {
           this.naverLogin.reprompt();
           return;
         }
+          alert('로그인') 
           this.naverlogin_flag = true
       } else {
         console.log("callback 처리에 실패하였습니다.");
