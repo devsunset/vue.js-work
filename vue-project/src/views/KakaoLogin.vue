@@ -4,7 +4,7 @@
       <v-card
           :loading="loading"
           class="mx-auto my-12"
-          max-width="374"
+          max-width="277"
         >
           <a id="custom-login-btn" @click="kakaoLogin()">
             <img
@@ -12,7 +12,7 @@
               width="277"
             />
           </a>
-        <v-card-title class="text-align">&nbsp;</v-card-title>
+        <!-- <v-card-title class="text-align">&nbsp;</v-card-title> -->
         <v-btn v-if="kakaologin_flag" @click="kakaoLogout" width="277">로그아웃</v-btn>
       </v-card>
     </v-row>

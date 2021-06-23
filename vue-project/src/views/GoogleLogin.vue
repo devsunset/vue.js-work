@@ -4,10 +4,9 @@
       <v-card
           :loading="loading"
           class="mx-auto my-12"
-          max-width="374"
+          max-width="120"
         >
        <div id="google-signin-btn"></div>
-        <v-card-title class="text-align">&nbsp;</v-card-title>
         <v-btn v-if="googlelogin_flag" @click="signOut" width="120">로그아웃</v-btn>
       </v-card>
     </v-row>
