@@ -1,9 +1,19 @@
 <template>
-<div>
-  <div id="google-signin-btn"></div>
-  <button type="button" v-if="googlelogin_flag" @click="signOut">구글 로그아웃</button>
-</div>
-</template> 
+  <v-container>
+    <v-row class="center">
+      <v-card
+          :loading="loading"
+          class="mx-auto my-12"
+          max-width="374"
+        >
+       <div id="google-signin-btn"></div>
+        <v-card-title class="text-align">&nbsp;</v-card-title>
+        <v-btn v-if="googlelogin_flag" @click="signOut" width="120">로그아웃</v-btn>
+      </v-card>
+    </v-row>
+  </v-container>
+</template>
+
 <script>
 export default {
   data() {

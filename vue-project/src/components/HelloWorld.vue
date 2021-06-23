@@ -7,7 +7,7 @@
           :src="vue_logo"
           class="my-3"
           contain
-          height="70"
+          height="77"
         />
       </v-col>
 
@@ -22,7 +22,7 @@
           :src="vuetify_logo"
           class="my-3"
           contain
-          height="70"
+          height="77"
         />
       </v-col>
 

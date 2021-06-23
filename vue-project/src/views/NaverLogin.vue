@@ -1,9 +1,19 @@
 <template>
-  <div>
-    <div id="naverIdLogin"></div>
-    <button type="button" v-if="naverlogin_flag" @click="logout">네이버 로그아웃</button>
-  </div>
+  <v-container>
+    <v-row class="center">
+      <v-card
+          :loading="loading"
+          class="mx-auto my-12"
+          max-width="374"
+        >
+        <div id="naverIdLogin"></div>
+        <v-card-title class="text-align">&nbsp;</v-card-title>
+        <v-btn v-if="naverlogin_flag" @click="logout" width="277">로그아웃</v-btn>
+      </v-card>
+    </v-row>
+  </v-container>
 </template>
+
 <script>
 import axios from "axios";
 export default {
@@ -50,6 +60,7 @@ export default {
       axios.get(url).then((res) => {
         this.naverlogin_flag = false
         console.log(res.data);
+        alert("로그아웃");
       });      
     },
   },

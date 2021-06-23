@@ -1,15 +1,22 @@
 <template>
-<v-container>
-   <v-row class="text-center">
-    <a id="custom-login-btn" @click="kakaoLogin()">
-      <img
-        src="//k.kakaocdn.net/14/dn/btqCn0WEmI3/nijroPfbpCa4at5EIsjyf0/o.jpg"
-        width="222"
-      />
-    </a>
-    <v-button type="button" v-if="kakaologin_flag" @click="kakaoLogout">카카오 로그아웃</v-button>
-  </v-row>
-</v-container>
+  <v-container>
+    <v-row class="center">
+      <v-card
+          :loading="loading"
+          class="mx-auto my-12"
+          max-width="374"
+        >
+          <a id="custom-login-btn" @click="kakaoLogin()">
+            <img
+              src="//k.kakaocdn.net/14/dn/btqCn0WEmI3/nijroPfbpCa4at5EIsjyf0/o.jpg"
+              width="277"
+            />
+          </a>
+        <v-card-title class="text-align">&nbsp;</v-card-title>
+        <v-btn v-if="kakaologin_flag" @click="kakaoLogout" width="277">로그아웃</v-btn>
+      </v-card>
+    </v-row>
+  </v-container>
 </template>
 
 <script>
@@ -47,7 +54,7 @@ export default {
           console.log(kakao_account);
           this.$store.commit("user", kakao_account);
           this.kakaologin_flag = true; 
-          alert("로그인 성공!");
+          alert("로그인");
         },
         fail: (error) => {
           // this.$router.push("/errorPage");
@@ -66,6 +73,7 @@ export default {
         console.log("access token:", window.Kakao.Auth.getAccessToken());
         console.log("log out:", response);
         this.kakaologin_flag = false;
+        alert("로그아웃");
       });
     },
   },

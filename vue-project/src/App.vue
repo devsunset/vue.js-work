@@ -5,9 +5,9 @@
       <v-spacer></v-spacer>
       <v-btn normal><router-link class="routerLink" to="/">Home</router-link></v-btn>
       <v-btn normal><router-link class="routerLink" to="/example">Example</router-link></v-btn>
-      <v-btn normal><router-link class="routerLink" to="/login">KaKao Login</router-link></v-btn>
-      <v-btn normal><router-link class="routerLink" to="/naverlogin">Naver Login</router-link></v-btn>
-      <v-btn normal><router-link class="routerLink" to="/googlelogin">Google Login</router-link> </v-btn>
+      <v-btn normal><router-link class="routerLink" to="/login">KaKao</router-link></v-btn>
+      <v-btn normal><router-link class="routerLink" to="/naverlogin">Naver</router-link></v-btn>
+      <v-btn normal><router-link class="routerLink" to="/googlelogin">Google</router-link> </v-btn>
       <v-spacer></v-spacer>
     </v-app-bar>
 
