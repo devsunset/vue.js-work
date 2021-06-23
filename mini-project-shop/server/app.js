@@ -1,6 +1,6 @@
 const express = require('express');
-const app = express();
 const session = require('express-session');
+const app = express();
 const fs = require('fs');
 
 app.use(session({
@@ -9,7 +9,7 @@ app.use(session({
   saveUninitialized: false,
   cookie: {
     secure: false,
-    maxAge: 1000 * 60 * 60 //쿠기 유효시간 1시간
+    maxAge: 1000 * 60 * 60 
   }
 }));
 
@@ -29,20 +29,33 @@ fs.watchFile(__dirname + '/sql.js', (curr, prev) => {
   sql = require('./sql.js');
 });
 
-// --- mariadb backup  start ---
-// const db = {
-//   database: "dev_class",
-//   connectionLimit: 10,
-//   host: "127.0.0.1",
-//   user: "root",
-//   password: "mariadb"
-// };
-// const dbPool = require('mysql').createPool(db);
-// --- mariadb backup  end ---
+const db = {
+  database: "dev_class",
+  connectionLimit: 10,
+  host: "193.123.255.92",
+  user: "root",
+  password: "ahqkdlf12#"
+};
+
+const dbPool = require('mysql').createPool(db);
+
+const req = {
+  async db(alias, param = [], where = '') {
+    return new Promise((resolve, reject) => dbPool.query(sql[alias].query + where, param, (error, rows) => {
+      if (error) {
+        if (error.code != 'ER_DUP_ENTRY')
+          console.log(error);
+        resolve({
+          error
+        });
+      } else resolve(rows);
+    }));
+  }
+};
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 app.post('/api/login', async (request, res) => {
-  // request.session['email'] = 'seungwon.go@gmail.com';
-  // res.send('ok');
   try {
     await req.db('signUp', request.body.param);
     if (request.body.param.length > 0) {
@@ -134,55 +147,3 @@ app.post('/api/:alias', async (request, res) => {
     });
   }
 });
-
-const sqlite3 = require('sqlite3').verbose();
-
-const req = {
-  async db(alias, param = [], where = '') {
-    return new Promise((resolve, reject) => new sqlite3.Database('./dev_class.db').all(sql[alias].query + where, param, (error, rows) => {
-      if (error) {
-        if (error.code != 'ER_DUP_ENTRY')
-          console.log(error);
-        resolve({
-          error
-        });
-      } else resolve(rows);
-    }));
-  }
-};
-
-/*
-// --- mariadb backup  start ---
-const req = {
-  async db(alias, param = [], where = '') {
-    return new Promise((resolve, reject) => dbPool.query(sql[alias].query + where, param, (error, rows) => {
-      if (error) {
-        if (error.code != 'ER_DUP_ENTRY')
-          console.log(error);
-        resolve({
-          error
-        });
-      } else resolve(rows);
-    }));
-  }
-};
-// --- mariadb backup  end ---
-*/
-
-/*
-    // sqlite3 example
-    let db = new sqlite3.Database('./dev_class.db');
-
-    let sqlx = `SELECT * FROM t_category`;
-
-    db.all(sqlx, [], (err, rows) => {
-      if (err) {
-        throw err;
-      }
-      rows.forEach((row) => {
-        console.log(row);
-      });
-    });
-
-    db.close();
-*/
