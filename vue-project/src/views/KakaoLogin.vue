@@ -1,16 +1,23 @@
 <template>
   <div>
-    <div>
-    <a id="custom-login-btn" @click="kakaoLogin()">
-      <img
-        src="//k.kakaocdn.net/14/dn/btqCn0WEmI3/nijroPfbpCa4at5EIsjyf0/o.jpg"
-        width="222"
-      />
-    </a>
+    <div class="card">
+      <div class="card-header">
+        Kakao
+      </div>
+      <div class="card-body">
+        <div>
+        <a id="custom-login-btn" @click="kakaoLogin()">
+          <img
+            src="//k.kakaocdn.net/14/dn/btqCn0WEmI3/nijroPfbpCa4at5EIsjyf0/o.jpg"
+            width="222"/>
+        </a>
+        </div>
+        <a href="#" class="btn btn-primary mt-1" type="button" v-if="kakaologin_flag" @click="kakaoLogout">Log out</a>
+      </div>
     </div>
-    <button type="button" v-if="kakaologin_flag" @click="kakaoLogout">카카오 로그아웃</button>
   </div>
 </template>
+
 <script>
 // import axios from 'axios'
 export default {
@@ -46,7 +53,7 @@ export default {
           console.log(kakao_account);
           this.$store.commit("user", kakao_account);
           this.kakaologin_flag = true; 
-          alert("로그인 성공!");
+          alert("Log in success.");
         },
         fail: (error) => {
           // this.$router.push("/errorPage");
@@ -65,6 +72,7 @@ export default {
         console.log("access token:", window.Kakao.Auth.getAccessToken());
         console.log("log out:", response);
         this.kakaologin_flag = false;
+        alert("Log out success.");
       });
     },
   },

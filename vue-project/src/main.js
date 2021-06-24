@@ -20,6 +20,7 @@ app.use(router)
 app.use(store)
 app.use(i18nPlugin, i18nStrings) 
 app.mixin(mixins)
+
 app.directive('focus',{
   mounted(el){
     el.focus()

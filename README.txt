@@ -79,18 +79,25 @@ https://github.com/seungwongo/mini-project-shop
   - cd vue_project
   - npm install axios --save
 
-/* -- Skip --
+/* 
+
+-- Skip -- (Vue3 not support)
+
+* BootstrapVue Install
+  - cd vue_project
+  - npm install vue bootstrap bootstrap-vue  --save
+
 * Vuetify 3 Alpha Install
   - cd vue_project
   - vue add vuetify
+
 */
+
 
 --------------------------------------------------------------------------------
 
 ### Snippets
-
 * Code -> Preference -> User Snippets -> vue (select)
-
 - setting snippet
 {
 	// Place your snippets for vue here. Each snippet is defined under a snippet name and has a prefix, body and 
@@ -142,7 +149,6 @@ https://github.com/seungwongo/mini-project-shop
 }
 
 ### cors
-
 // Node.js express 
 app.all('/*', function(req ,res ,next){
     res.header("Access-Control-Allow-Origin","*");
@@ -157,13 +163,11 @@ let corsOption = {
 }
 app.use(cors(corsOption());
 
-
 // minins.js
 import axios from 'axios';
 axios.defaults.baseURL = 'http://localhost:3000';
 axios.defaults.headers.post['Content-Type'] = 'application/json;charset=utf-8';
 axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
-
 
 // vue.config.js
 const target = 'http://127.0.0.1:3000';
@@ -180,6 +184,11 @@ module.exports = {
         }
     }
 }
+
+### Browser bootstrap
+  - add index.html 
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 
 ### Error: ENOSPC: System limit for number of file watchers reached
 https://anencore94.github.io/2020/08/20/react-error-01.html
