@@ -1,167 +1,321 @@
 <template>
 <div>
-    <h1>Example</h1>
-
-    <div>
-            <h1>----------------------------------------------------------------------</h1>
+    <div class="card">
+    <div class="card-header">
+        <h1>Example</h1>
     </div>
-
-    <div>Data Binding : {{dataBindMsg}}</div>
-
-    <div>{{htmlString}}</div>
-    <div v-html="htmlString"></div>
-
-    <div><input type="text" v-model="valueModel" v-focus/></div>
-
-    <div><input type="number" v-model.number="numberModel"/></div>
-
-    <div><textarea v-model="message"></textarea></div>
-
-    <div>
-        <select v-model="type">
-            <option value="A">A</option>
-            <option value="B">B</option>
-            <option value="C">C</option>
-        </select>
-    </div>  
-
-    <div>
-        <label><input type="checkbox" v-model="checked">{{ checked }}</label>
-    </div>  
-
-    <div>
-        <label><input type="checkbox" v-model="checkedvalue" true-value="yes" false-value="no">{{ checkedvalue }}</label>
-    </div>  
-
-    <div>
-        <label><input type="checkbox" value="A" v-model="checkedvaluemulti">A</label>
-        <label><input type="checkbox" value="B" v-model="checkedvaluemulti">B</label>
-        <label><input type="checkbox" value="C" v-model="checkedvaluemulti">C</label>
-        <br/>
-        <span> select type : {{ checkedvaluemulti }}</span>
-    </div>  
-
-     <div>
-        <label><input type="radio" v-bind:value="radioValue1" v-model="picked">A</label>
-        <label><input type="radio" v-bind:value="radioValue2" v-model="picked">B</label>
-        <label><input type="radio" v-bind:value="radioValue3" v-model="picked">C</label>
-        <br/>
-        <span> select type : {{ picked }}</span>
-    </div>  
-
-    <div><img v-bind:src="imgSrc" v-bind:witdh="30" v-bind:height="30"/></div>
-
-    <div>
-        <input type="text" v-model="textValue"/>
-        <button type="button" v-bind:disabled="textValue==''">Click</button>
     </div>
+    <table class="table">
+        <thead>
+            <tr>
+            <th scope="col">#</th>
+            <th scope="col">Item</th>
+            <th scope="col">Example  (reference source)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+            <th scope="row">1</th>
+            <td>&#123;&#123; &#125;&#125; </td>
+            <td>{{dataBindMsg}}</td>
+            </tr>
+            <tr>
+            <th scope="row">2</th>
+            <td>&#123;&#123; &#125;&#125;  html tag X</td>
+            <td>{{htmlString}}</td>
+            </tr>
+            <tr>
+            <th scope="row">3</th>
+            <td>v-html </td>
+            <td><span v-html="htmlString"></span></td>
+            </tr>
+            <tr>
+            <th scope="row">4</th>
+            <td>v-model , v-focus (input text)</td>
+            <td><input type="text" v-model="valueModel" v-focus/></td>
+            </tr>
+            <tr>
+            <th scope="row">5</th>
+            <td>v-model.number (input text)</td>
+            <td><input type="number" v-model.number="numberModel"/></td>
+            </tr>
+            <tr>
+            <th scope="row">6</th>
+            <td>v-model (textarea)</td>
+            <td><textarea v-model="message"></textarea></td>
+            </tr>
+            <tr>
+            <th scope="row">7</th>
+            <td>v-model (select)</td>
+            <td>
+                     <select v-model="type">
+                        <option value="A">A</option>
+                        <option value="B">B</option>
+                        <option value="C">C</option>
+                    </select>
+            </td>
+            </tr>
+            <tr>
+            <th scope="row">8</th>
+            <td>v-model (checkbox)</td>
+            <td><label><input type="checkbox" v-model="checked"> {{ checked }}</label></td>
+            </tr>
+            <tr>
+            <th scope="row">9</th>
+            <td>v-model (checkbox value setting)</td>
+            <td><label><input type="checkbox" v-model="checkedvalue" true-value="yes" false-value="no"> {{ checkedvalue }}</label></td>
+            </tr>
+            <tr>
+            <th scope="row">10</th>
+            <td>v-model (checkbox group)</td>
+            <td>
+                    <label><input type="checkbox" value="A" v-model="checkedvaluemulti"> A </label>
+                    &nbsp;<label><input type="checkbox" value="B" v-model="checkedvaluemulti"> B </label>
+                    &nbsp;<label><input type="checkbox" value="C" v-model="checkedvaluemulti"> C </label>
+                    <br/>
+                    <span> select type : {{ checkedvaluemulti }}</span>
 
-    <div class="container" v-bind:class="{ 'active' : isActive, 'text-red' : hasError}">Class Binding</div>
+            </td>
+            </tr>
+            <tr>
+            <th scope="row">11</th>
+            <td>v-model , v-bind (radio)</td>
+            <td>
+                    <label><input type="radio" v-bind:value="radioValue1" v-model="picked"> A </label>
+                    &nbsp;<label><input type="radio" v-bind:value="radioValue2" v-model="picked"> B </label>
+                    &nbsp;<label><input type="radio" v-bind:value="radioValue3" v-model="picked"> C </label>
+                    <br/>
+                    <span> select type : {{ picked }}</span>
+            </td>
+            </tr>
+            <tr>
+            <th scope="row">12</th>
+            <td>v-bind (img)</td>
+            <td><img v-bind:src="imgSrc" v-bind:witdh="30" v-bind:height="30"/></td>
+            </tr>
+            <tr>
+            <th scope="row">13</th>
+            <td>v-model , v-bind (input button)</td>
+            <td>   
+                    <input type="text" v-model="textValue"/>
+                    <button type="button" v-bind:disabled="textValue==''">Click</button>
+            </td>
+            </tr>
+            <tr>
+            <th scope="row">14</th>
+            <td>v-bind (class binding)</td>
+            <td><div class="container" v-bind:class="{ 'active' : isActive, 'text-red' : hasError}">Class Binding</div></td>
+            </tr>
+            <tr>
+            <th scope="row">15</th>
+            <td>v-bind (class binding array) </td>
+            <td><div class="container" v-bind:class="[activeClass, errorClass]">Class Binding</div></td>
+            </tr>
+            <tr>
+            <th scope="row">16</th>
+            <td>v-bind (Inline Style binding)</td>
+            <td><div v-bind:style="styleObject">Inline Style Binding</div></td>
+            </tr>
+            <tr>
+            <th scope="row">17</th>
+            <td>v-bind (Inline Style binding array)</td>
+            <td><div v-bind:style="[baseStyle, addStyle]">Inline Style array Binding</div></td>
+            </tr>
+            <tr>
+            <th scope="row">18</th>
+            <td>v-for</td>
+            <td>       
+                <table>
+                    <thead>
+                        <tr>
+                            <th>no</th>
+                            <th>language</th>
+                            <th>category</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr :key="i" v-for="(item,i) in items">
+                            <td>{{item.no}}</td>
+                            <td>{{item.language}}</td>
+                            <td>{{item.category}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            </tr>
+            <tr>
+            <th scope="row">19</th>
+            <td>v-if , v-else-if , v-else , v-show</td>
+            <td>
+                    <h6 v-if="condition==='A'">A</h6>
+                    <h6 v-else-if="condition==='B'">B</h6>
+                    <h6 v-else>C</h6>
+                    <h6 v-show='true'>v-if (rendering X) & v-show (rendering O  and not visibile) </h6>
+            </td>
+            </tr>
+            <tr>
+            <th scope="row">20</th>
+            <td>click event , method</td>
+            <td>
+                    <button type="button" @click="increaseCounter">Add 1 </button>
+                    <p>The counter is : {{counter}}</p>
+                    <button type="button" @click="setCounter(7)">Set 7 </button>
+                    <p>The counter sub is : {{countersub}}</p>
+                    <button type="button" @click="one(), two()">Click </button>
+            </td>
+            </tr>
+            <tr>
+            <th scope="row">21</th>
+            <td>change event , method</td>
+            <td>
+                    <select v-model="typesub" @change="changeSelect">
+                        <option value="A">A</option>
+                        <option value="B">B</option>
+                        <option value="C">C</option>
+                    </select>
+            </td>
+            </tr>
+            <tr>
+            <th scope="row">22</th>
+            <td>key event</td>
+            <td>
+                <div>
+                    <input @keyup.enter="keyevent"/>
+                    <span>
+                        <br>
+                        .enter
+                        .up
+                        .tab 
+                        .down 
+                        .delete 
+                        .left 
+                        .esc 
+                        .right 
+                        .space 
+                        <br>
+                        Alt + Enter -> @keyup.alt.enter 
+                        Ctrl + Click -> @click.ctrl 
+                    </span>
+                </div>
+            </td>
+            </tr>
+            <tr>
+            <th scope="row">23</th>
+            <td>computed</td>
+            <td>
+                 <h6>Full Name : {{fullName}}</h6>
+                 <button type="button" @click="firstnameChange">first name change</button>
+            </td>
+            </tr>
+            <tr>
+            <th scope="row">24</th>
+            <td>watch</td>
+            <td>
+                <h6>Full Name : {{fullNameSub}}</h6>
+                <button type="button" @click="firstnameChangeSub">first name change</button>
+            </td>
+            </tr>
+            <tr>
+            <th scope="row">25</th>
+            <td>axios api call</td>
+            <td>
+                    <button type="button" @click="apiCall">click</button>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>id</th>
+                                <th>userid</th>
+                                <th>title</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr :key="i" v-for="(item,i) in posts">
+                                <td>{{item.id}}</td>
+                                <td>{{item.userId}}</td>
+                                <td>{{item.title}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+            </td>
+            </tr>
+            <tr>
+            <th scope="row">26</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            </tr>
+            <tr>
+            <th scope="row">27</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            </tr>
+            <tr>
+            <th scope="row">28</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            </tr>
+            <tr>
+            <th scope="row">29</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            </tr>
+            <tr>
+            <th scope="row">30</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            </tr>
+             <tr>
+            <th scope="row">31</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            </tr>
+             <tr>
+            <th scope="row">32</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            </tr>
+             <tr>
+            <th scope="row">33</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            </tr>
+             <tr>
+            <th scope="row">34</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            </tr>
+             <tr>
+            <th scope="row">35</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            </tr>
+             <tr>
+            <th scope="row">36</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            </tr>
+             <tr>
+            <th scope="row">37</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            </tr>
+             <tr>
+            <th scope="row">38</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            </tr>
+             <tr>
+            <th scope="row">39</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            </tr>
+             <tr>
+            <th scope="row">40</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            </tr>
+        </tbody>
+    </table>
 
-    <div class="container" v-bind:class="[activeClass, errorClass]">Class Binding</div>
-
-    <div v-bind:style="styleObject">Inline Style Binding</div>
-
-    <div v-bind:style="[baseStyle, addStyle]">Inline Style array Binding</div>
-
-    <div>
-        <table>
-            <thead>
-                <tr>
-                    <th>no</th>
-                    <th>language</th>
-                    <th>category</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr :key="i" v-for="(item,i) in items">
-                    <td>{{item.no}}</td>
-                    <td>{{item.language}}</td>
-                    <td>{{item.category}}</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
-    <div>
-        <h1 v-if="condition==='A'">A</h1>
-        <h1 v-else-if="condition==='B'">B</h1>
-        <h1 v-else>C</h1>
-        <h1 v-show='true'>v-if (display:none) & v-show (visibile) </h1>
-    </div>
-
-    <div>
-        <button type="button" @click="increaseCounter">Add 1 </button>
-        <p>The counter is : {{counter}}</p>
-        <button type="button" @click="setCounter(7)">Set 7 </button>
-        <p>The counter sub is : {{countersub}}</p>
-        <button type="button" @click="one(), two()">Click </button>
-    </div>
-
-    <div>
-        <select v-model="typesub" @change="changeSelect">
-            <option value="A">A</option>
-            <option value="B">B</option>
-            <option value="C">C</option>
-        </select>
-    </div>  
-
-    <div>
-        <input @keyup.enter="keyevent"/>
-        <span>
-            <br>
-            .enter
-            .up
-            .tab 
-            .down 
-            .delete 
-            .left 
-            .esc 
-            .right 
-            .space 
-            <br>
-            Alt + Enter -> @keyup.alt.enter 
-            Ctrl + Click -> @click.ctrl 
-        </span>
-    </div>
-
-    <div>
-        <span>computed</span>
-        <h1>Full Name : {{fullName}}</h1>
-        <button type="button" @click="firstnameChange">first name change</button>
-        <p/>
-        <span>watch</span>
-         <h1>Full Name : {{fullNameSub}}</h1>
-        <button type="button" @click="firstnameChangeSub">first name change</button>
-    </div>  
-
-    <div>
-            <h1>----------------------------------------------------------------------</h1>
-    </div>
-
-    <div>
-        <button type="button" @click="apiCall">use axios api call</button>
-        <table>
-            <thead>
-                <tr>
-                    <th>id</th>
-                    <th>userid</th>
-                    <th>title</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr :key="i" v-for="(item,i) in posts">
-                    <td>{{item.id}}</td>
-                    <td>{{item.userId}}</td>
-                    <td>{{item.title}}</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
-    <div>
-            <h1>----------------------------------------------------------------------</h1>
-    </div>
 
     <div>
         <ChildComponent  />
@@ -191,10 +345,6 @@
         </modal-layout>
 
         <input type="text" ref="title"/>
-    </div>
-
-    <div>
-            <h1>----------------------------------------------------------------------</h1>
     </div>
 
     <div>
@@ -238,11 +388,10 @@
         <span>{{result5}}</span>
     </div>
 
-
     <child-component  title="Childcomponent CompositionAPIInject"/>
 
     <div style="height:15px;">
-        <p v-pin="position"> directives example - page fix area (position:fixed;top50px,left;200px;)</p>
+        <p v-pin="position"> directives example - page fix area (position:fixed;top70px,left;100px;)</p>
     </div>
 
     <div>
@@ -251,15 +400,23 @@
         <h3>{{ i18n.ko.hi }}</h3>
     </div>
 
-     <div>
-            <h1>----------------------------------------------------------------------</h1>
-    </div>
-
     <div>
         <p>Count : {{ count }}</p>
         <p>cartCount : {{ cartCount }}</p>
         <button type="button" @click="increment">Increment</button>
     </div>
+
+
+
+
+
+
+
+
+
+
+
+
 
 </div>
 </template>
@@ -279,7 +436,7 @@
         data() {
             return {
                 dataBindMsg : 'Hello World'
-                ,htmlString : '<font color="blue"> html Binding :  Hello World</font>'
+                ,htmlString : '<font color="blue"> Hello World</font>'
                 ,valueModel : 'Hello World'
                 ,numberModel : 1
                 ,message : 'hello \nworld' 
@@ -324,7 +481,7 @@
                 ,num2: 0
                 ,result1: 0
                 ,mixtest: []
-                ,position : { top:50, left:100}
+                ,position : { top:70, left:100}
             };
         },
         computed : {
