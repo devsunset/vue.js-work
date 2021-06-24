@@ -217,7 +217,7 @@
             </tr>
             <tr>
             <th scope="row">25</th>
-            <td>axios api call</td>
+            <td>Axios - axios api call</td>
             <td>
                     <button type="button" @click="apiCall">click</button>
                     <table>
@@ -240,184 +240,178 @@
             </tr>
             <tr>
             <th scope="row">26</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
+            <td>Component - ChildComponent.vue</td>
+            <td><ChildComponent  /></td>
             </tr>
             <tr>
             <th scope="row">27</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
+            <td>Component - ChildComponent.vue , props static</td>
+            <td><ChildComponent  title="Childcomponent static value"/></td>
             </tr>
             <tr>
             <th scope="row">28</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
+            <td>Component - ChildComponent.vue , props dynamic</td>
+            <td><ChildComponent  v-bind:title="title"/></td>
             </tr>
             <tr>
             <th scope="row">29</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
+            <td>Component - ChildComponent.vue , props (number)</td>
+            <td><ChildComponent  title="Childcomponent number use bind" v-bind:age="11"/></td>
             </tr>
             <tr>
             <th scope="row">30</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
+           <td>Component - ChildComponent.vue , props (boolean)</td>
+            <td><ChildComponent  title="Childcomponent boolean use bind" v-bind:condition="true"/> </td>
             </tr>
              <tr>
             <th scope="row">31</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
+            <td>Component - ChildComponent.vue , props (array)</td>
+            <td><ChildComponent  title="Childcomponent array use bind" v-bind:arrayvalue="[1,2,3]"/></td>
             </tr>
              <tr>
             <th scope="row">32</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
+            <td>Component - ChildComponent.vue , props (object)</td>
+            <td><ChildComponent  title="Childcomponent object use bind" v-bind:objectvalue="{id : 'object', key : '1'}"/></td>
             </tr>
              <tr>
             <th scope="row">33</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
+            <td>Component   Parent &lt;-&gt; Child interface (function call, data change)</td>
+            <td>
+                <button type="button" @click="childClick">child click</button>
+                <button type="button" @click="childFuncCall()">child fucntion call</button>
+                <button type="button" @click="changeChildData()">change child data</button>
+                <button type="button" @click="checkChild()">check child</button>
+                <child-component  title="Childcomponent From parent child control" @send-message="sendMessage" ref="child_component"/>
+            </td>
             </tr>
              <tr>
             <th scope="row">34</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
+            <td>Solt - SlotModalLayout.vue</td>
+            <td>
+                        <div v-bind:style="'text-align:center'">
+                            <modal-layout>
+                                <template v-slot:header>
+                                    <h3>Pop Up Title - Slot</h3>
+                                </template>
+                                <template v-slot:default>
+                                    <p>Pop Up Contents 1</p>
+                                    <p>Pop Up Contents 2</p>
+                                </template>
+                                <template v-slot:footer>
+                                    <button type=“button”>Close</button>
+                                </template>
+                            </modal-layout>
+                        </div>
+            </td>
             </tr>
              <tr>
             <th scope="row">35</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
+            <td>ref - html reference</td>
+            <td> <input type="text" ref="title"/></td>
             </tr>
              <tr>
             <th scope="row">36</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
+            <td>Composition API  - Step 1</td>
+            <td>
+                 <div>
+                    <input type="text" v-model="num1" @keyup="plusNumbers1" />
+                    <span> + </span>
+                    <input type="text" v-model="num2" @keyup="plusNumbers1" />
+                    <span> = </span>
+                    <span>{{result1}}</span>
+                </div>
+            </td>
             </tr>
              <tr>
             <th scope="row">37</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
+            <td>Composition API  - Step 2</td>
+            <td>
+                <div>
+                    <input type="text" v-model="state2.num3" @keyup="plusNumbers2" />
+                    <span> + </span>
+                    <input type="text" v-model="state2.num4" @keyup="plusNumbers2" />
+                    <span> = </span>
+                    <span>{{state2.result2}}</span>
+                </div>
+            </td>
             </tr>
              <tr>
             <th scope="row">38</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
+            <td>Composition API  - Step 3</td>
+            <td>
+                <div>
+                    <input type="text" v-model="state3.num5"/>
+                    <span> + </span>
+                    <input type="text" v-model="state3.num6"/>
+                    <span> = </span>
+                    <span>{{state3.result3}}</span>
+                </div>
+            </td>
             </tr>
              <tr>
             <th scope="row">39</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
+            <td>Composition API  - Step 4</td>
+            <td>
+                <div>
+                    <input type="text" v-model="num7"/>
+                    <span> + </span>
+                    <input type="text" v-model="num8"/>
+                    <span> = </span>
+                    <span>{{result4}}</span>
+                </div>
+            </td>
             </tr>
              <tr>
             <th scope="row">40</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
+            <td>Composition API  - Step 5</td>
+            <td>
+                 <div>
+                    <input type="text" v-model="num9"/>
+                    <span> + </span>
+                    <input type="text" v-model="num10"/>
+                    <span> = </span>
+                    <span>{{result5}}</span>
+                </div>
+            </td>
+            </tr>
+             <tr>
+            <th scope="row">41</th>
+            <td>provide - inject</td>
+            <td><child-component  title="Childcomponent CompositionAPIInject"/></td>
+            </tr>
+             <tr>
+            <th scope="row">42</th>
+            <td>directive , v-focus (directive)</td>
+            <td>
+                    <div style="height:15px;">
+                        <p v-pin="position"> directives example - page fix area (position:fixed;top70px,left;100px;)</p>
+                    </div>
+            </td>
+            </tr>
+             <tr>
+            <th scope="row">43</th>
+            <td>plugins - i18n.js</td>
+            <td>
+                <div>
+                    <h6>{{ $translate("ko.hi") }}</h6>
+                    <h6>{{ $translate("en.hi") }}</h6>
+                    <h6>{{ i18n.ko.hi }}</h6>
+                </div>
+            </td>
+            </tr>
+             <tr> 
+            <th scope="row">44</th>
+            <td>Vuex</td>
+            <td>
+                 <div>
+                    <p>Count : {{ count }}</p>
+                    <p>cartCount : {{ cartCount }}</p>
+                    <button type="button" @click="increment">Increment</button>
+                </div>
+            </td>
             </tr>
         </tbody>
     </table>
-
-
-    <div>
-        <ChildComponent  />
-        <ChildComponent  title="Childcomponent static value"/>
-        <ChildComponent  v-bind:title="title"/>
-        <ChildComponent  title="Childcomponent number use bind" v-bind:age="11"/>
-        <ChildComponent  title="Childcomponent boolean use bind" v-bind:condition="true"/> 
-        <ChildComponent  title="Childcomponent array use bind" v-bind:arrayvalue="[1,2,3]"/>
-        <ChildComponent  title="Childcomponent object use bind" v-bind:objectvalue="{id : 'object', key : '1'}"/>
-        <button type="button" @click="childClick">child click</button>
-        <button type="button" @click="childFuncCall()">child fucntion call</button>
-        <button type="button" @click="changeChildData()">change child data</button>
-        <button type="button" @click="checkChild()">check child</button>
-        <child-component  title="Childcomponent From parent child control" @send-message="sendMessage" ref="child_component"/>
-
-        <modal-layout>
-            <template v-slot:header>
-                <h1>Pop Up Title - Slot</h1>
-            </template>
-            <template v-slot:default>
-                <p>Pop Up Contents 1</p>
-                <p>Pop Up Contents 2</p>
-            </template>
-            <template v-slot:footer>
-                <button type=“button”>Close</button>
-            </template>
-        </modal-layout>
-
-        <input type="text" ref="title"/>
-    </div>
-
-    <div>
-      <h2>Calculator - Composition API</h2>
-        <input type="text" v-model="num1" @keyup="plusNumbers1" />
-        <span> + </span>
-        <input type="text" v-model="num2" @keyup="plusNumbers1" />
-        <span> = </span>
-        <span>{{result1}}</span>
-    </div>
-
-    <div>
-        <input type="text" v-model="state2.num3" @keyup="plusNumbers2" />
-        <span> + </span>
-        <input type="text" v-model="state2.num4" @keyup="plusNumbers2" />
-        <span> = </span>
-        <span>{{state2.result2}}</span>
-    </div>
-
-    <div>
-        <input type="text" v-model="state3.num5"/>
-        <span> + </span>
-        <input type="text" v-model="state3.num6"/>
-        <span> = </span>
-        <span>{{state3.result3}}</span>
-    </div>
-
-    <div>
-        <input type="text" v-model="num7"/>
-        <span> + </span>
-        <input type="text" v-model="num8"/>
-        <span> = </span>
-        <span>{{result4}}</span>
-    </div>
-
-    <div>
-        <input type="text" v-model="num9"/>
-        <span> + </span>
-        <input type="text" v-model="num10"/>
-        <span> = </span>
-        <span>{{result5}}</span>
-    </div>
-
-    <child-component  title="Childcomponent CompositionAPIInject"/>
-
-    <div style="height:15px;">
-        <p v-pin="position"> directives example - page fix area (position:fixed;top70px,left;100px;)</p>
-    </div>
-
-    <div>
-        <h3>{{ $translate("ko.hi") }}</h3>
-        <h3>{{ $translate("en.hi") }}</h3>
-        <h3>{{ i18n.ko.hi }}</h3>
-    </div>
-
-    <div>
-        <p>Count : {{ count }}</p>
-        <p>cartCount : {{ cartCount }}</p>
-        <button type="button" @click="increment">Increment</button>
-    </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
 </div>
 </template>
  

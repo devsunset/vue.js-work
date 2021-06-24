@@ -1,5 +1,5 @@
 <template>
-    <h3>{{ title }} : {{ age }} : <span v-if="condition">boolean true</span> : {{ arrayvalue }}  : {{ objectvalue !=null ? objectvalue.id : '' }} : <button type="button" @click="childFunc()" ref="btn">click</button> {{ msg }}  : {{ provideInjectMsg }}</h3>
+    <h6>{{ title }} : {{ age }} : <span v-if="condition">boolean true</span> : {{ arrayvalue }}  : {{ objectvalue !=null ? objectvalue.id : '' }} : <button type="button" @click="childFunc()" ref="btn">click</button> {{ msg }}  : {{ provideInjectMsg }}</h6>
 </template>
 
 <script>
