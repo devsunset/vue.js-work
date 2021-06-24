@@ -1,35 +1,30 @@
 <template>
-  <v-app>
-
-    <v-app-bar density="compact">
-      <v-spacer></v-spacer>
-      <v-btn normal><router-link class="routerLink" to="/">Home</router-link></v-btn>
-      <v-btn normal><router-link class="routerLink" to="/example">Example</router-link></v-btn>
-      <v-btn normal><router-link class="routerLink" to="/login">KaKao</router-link></v-btn>
-      <v-btn normal><router-link class="routerLink" to="/naverlogin">Naver</router-link></v-btn>
-      <v-btn normal><router-link class="routerLink" to="/googlelogin">Google</router-link> </v-btn>
-      <v-spacer></v-spacer>
-    </v-app-bar>
-
-    <v-main>
-      <router-view/>
-    </v-main>
-
-  </v-app>
+  <div id="nav">
+    <router-link to="/">Home</router-link> |
+    <router-link to="/example">Example</router-link> |
+    <router-link to="/login">KaKao Login</router-link> |
+    <router-link to="/naverlogin">Naver Login</router-link> |
+    <router-link to="/googlelogin">Google Login</router-link> 
+  </div>
+  <router-view/>
 </template>
 
-<script>
-export default {
-  name: 'App',
-
-  data: () => ({
-    //
-  }),
+<style>
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
 }
-</script>
-
-<style scoped>
-.routerLink{
-     text-decoration: none;
- }
+#nav {
+  padding: 30px;
+}
+#nav a {
+  font-weight: bold;
+  color: #2c3e50;
+}
+#nav a.router-link-exact-active {
+  color: #42b983;
+}
 </style>

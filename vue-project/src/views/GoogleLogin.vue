@@ -1,18 +1,9 @@
 <template>
-  <v-container>
-    <v-row class="center">
-      <v-card
-          :loading="loading"
-          class="mx-auto my-12"
-          max-width="120"
-        >
-       <div id="google-signin-btn"></div>
-        <v-btn v-if="googlelogin_flag" @click="signOut" width="120">로그아웃</v-btn>
-      </v-card>
-    </v-row>
-  </v-container>
-</template>
-
+<div>
+  <div id="google-signin-btn"></div>
+  <button type="button" v-if="googlelogin_flag" @click="signOut">구글 로그아웃</button>
+</div>
+</template> 
 <script>
 export default {
   data() {
@@ -35,12 +26,10 @@ export default {
       console.log("Email: " + profile.getEmail());
       const id_token = googleUser.getAuthResponse().id_token;
       console.log("ID Token: " + id_token);
-      alert("로그인");
     },
     signOut () {
       window.gapi.auth2.getAuthInstance().disconnect();
        this.googlelogin_flag = false
-       alert("로그아웃");
     }
   }
 }

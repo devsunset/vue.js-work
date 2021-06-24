@@ -13,5 +13,6 @@
             "username": "root",
             "password": "ahqkdlf12#"
         }
-    ]
+    ],
+    "git.ignoreLimitWarning": true
 }

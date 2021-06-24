@@ -1,18 +1,9 @@
 <template>
-  <v-container>
-    <v-row class="center">
-      <v-card
-          :loading="loading"
-          class="mx-auto my-12"
-          max-width="277" height="10"
-        >
-        <div id="naverIdLogin"></div>
-        <v-btn v-if="naverlogin_flag" @click="logout" width="277">로그아웃</v-btn>
-      </v-card>
-    </v-row>
-  </v-container>
+  <div>
+    <div id="naverIdLogin"></div>
+    <button type="button" v-if="naverlogin_flag" @click="logout">네이버 로그아웃</button>
+  </div>
 </template>
-
 <script>
 import axios from "axios";
 export default {
@@ -43,7 +34,6 @@ export default {
           this.naverLogin.reprompt();
           return;
         }
-          alert('로그인') 
           this.naverlogin_flag = true
       } else {
         console.log("callback 처리에 실패하였습니다.");
@@ -60,7 +50,6 @@ export default {
       axios.get(url).then((res) => {
         this.naverlogin_flag = false
         console.log(res.data);
-        alert("로그아웃");
       });      
     },
   },
