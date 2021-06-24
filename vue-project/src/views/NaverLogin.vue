@@ -46,7 +46,7 @@ export default {
           return;
         }
           this.naverlogin_flag = true
-          alert("Log in success.");
+          // alert("Log in success.");
       } else {
         console.log("callback 처리에 실패하였습니다.");
         this.naverlogin_flag = false
@@ -56,14 +56,14 @@ export default {
   methods: {
     logout() {
       // service_provider
-      const accessToken = this.naverLogin.accessToken.accessToken;
+      const accessToken = this.naverLogin.accessToken.accessToken;      
       const url = `/oauth2.0/token?grant_type=delete&client_id=zFcLWPMTcDQTNTB6iIOy&client_secret=bUW7FZMpS9&access_token=${accessToken}&service_provider=NAVER`;
       // const url = `https://nid.naver.com/oauth2.0/token?grant_type=delete&client_id=zFcLWPMTcDQTNTB6iIOy&client_secret=bUW7FZMpS9&access_token=${accessToken}&service_provider=NAVER`;
       console.log(url)
       axios.get(url).then((res) => {
         this.naverlogin_flag = false
         console.log(res.data);
-        alert("Log out success.");
+        // alert("Log out success.");
       });      
     },
   },

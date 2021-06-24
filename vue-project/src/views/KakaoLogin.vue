@@ -53,7 +53,7 @@ export default {
           console.log(kakao_account);
           this.$store.commit("user", kakao_account);
           this.kakaologin_flag = true; 
-          alert("Log in success.");
+          // alert("Log in success.");
         },
         fail: (error) => {
           // this.$router.push("/errorPage");
@@ -72,7 +72,7 @@ export default {
         console.log("access token:", window.Kakao.Auth.getAccessToken());
         console.log("log out:", response);
         this.kakaologin_flag = false;
-        alert("Log out success.");
+        // alert("Log out success.");
       });
     },
   },

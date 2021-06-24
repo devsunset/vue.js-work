@@ -38,12 +38,12 @@ export default {
       console.log("Email: " + profile.getEmail());
       const id_token = googleUser.getAuthResponse().id_token;
       console.log("ID Token: " + id_token);
-      alert("Log in success.");
+      // alert("Log in success.");
     },
     signOut () {
       window.gapi.auth2.getAuthInstance().disconnect();
       this.googlelogin_flag = false
-      alert("Log out success.");
+      // alert("Log out success.");
     }
   }
 }
