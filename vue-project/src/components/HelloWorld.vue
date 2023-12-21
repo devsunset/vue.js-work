@@ -1,7 +1,7 @@
 <template>
   <div class="hello">
-    <h1>vuejs-work</h1>
-    <h2><a href="https://github.com/devsunset/vuejs-work" target="_blank" rel="noopener">https://github.com/devsunset/vuejs-work</a></h2>
+    <h1>vuejs-study</h1>
+    <h2><a href="https://github.com/devsunset/vuejs-study" target="_blank" rel="noopener">https://github.com/devsunset/vuejs-study</a></h2>
     <p>
       For a guide and recipes on how to configure / customize this project,<br>
       check out the
